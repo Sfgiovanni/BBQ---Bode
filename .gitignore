@@ -11,6 +11,8 @@ env/
 .claude/
 .DS_Store
 *.log
+.bilingual_bode.pid
+.launcher_*.log
 
 # ── Resultados ────────────────────────────────────────────
 # Política: versionamos apenas a rodada "full" final (métricas +
@@ -18,16 +20,46 @@ env/
 # de fora para manter o repositório leve.
 results/*
 !results/README.md
-!results/final/
-results/final/raw_predictions.csv
-results/final/raw_predictions.parquet
-results/final/expanded_examples.parquet
+!results/legacy_portuguese/
+!results/runs/
+results/runs/*
+
+# Registro cientifico leve da rodada bilingue revisada (sem dados linha a linha,
+# logs ou checkpoints). Novas rodadas continuam ignoradas por padrao.
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/
+results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/*
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/config_resolved.yaml
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/git_state.json
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/dataset_manifest.json
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/manifest.json
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/runtime.json
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/base_templates.csv
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/EXECUTIVE_SUMMARY.md
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/REPORT.md
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/REPORT_BRAZIL_SPECIFIC.md
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/metrics/
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/metrics/**
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/figures/
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/figures/**
+# The compact Parquet predictions are part of the reproducibility artifact.
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/raw_predictions.parquet
+
+# Large legacy row-level data remain local.
+results/legacy_portuguese/raw_predictions.csv
+results/legacy_portuguese/raw_predictions.parquet
+results/legacy_portuguese/expanded_examples.parquet
 
 # Checkpoints intermediários de scoring, em qualquer rodada
 **/checkpoint*.parquet
 **/checkpoint*.csv
+**/run.lock
+data/validation/generated/
+reproduced/
 
 # ── Segredos ──────────────────────────────────────────────
 # Nunca versionar tokens. O código lê HF_TOKEN do ambiente.
 .env
 *token*
+
+# Nao e credencial: e apenas a contabilidade de uso da rodada publicada.
+!results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/token_usage.json

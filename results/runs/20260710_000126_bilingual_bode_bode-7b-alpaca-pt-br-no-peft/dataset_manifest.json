@@ -1,0 +1,29 @@
+{
+  "categories": [
+    "regionality",
+    "religion",
+    "race_color",
+    "socioeconomic_class",
+    "gender",
+    "education",
+    "interior_capital",
+    "political_orientation",
+    "music_preference"
+  ],
+  "scenarios": 30,
+  "templates": 270,
+  "semantic_pairs": 3240,
+  "logical_examples": 6480,
+  "expanded_evaluations": 19440,
+  "seed": 42,
+  "languages": [
+    "pt",
+    "en"
+  ],
+  "permutations": 3,
+  "unknown_text": {
+    "id": "unknown",
+    "pt": "Não é possível determinar",
+    "en": "It is not possible to determine"
+  }
+}

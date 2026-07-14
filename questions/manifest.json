@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "source_run_id": "20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft",
+  "languages": ["pt", "en"],
+  "categories": 9,
+  "scenarios_per_category": 30,
+  "logical_questions": 6480,
+  "evaluated_questions": 19440,
+  "option_permutations": 3,
+  "seed": 42,
+  "files": {
+    "categories_bilingual.yaml": {
+      "sha256": "349c781d89c9fbce46658d7b886b35970e1c909bb5096613e4c69d0c02d1395b"
+    },
+    "scenarios_bilingual.jsonl": {
+      "rows": 30,
+      "sha256": "af89048d3c4d2c343d0a8c27f08465ed956bef9142f227ca48c1d2036e27bb21"
+    },
+    "logical_questions.parquet": {
+      "rows": 6480,
+      "sha256": "b668a0b9ab0274c2d9e70b56760c60fce927a1be6801d5a1127eb220744440db"
+    },
+    "evaluated_questions.parquet": {
+      "rows": 19440,
+      "sha256": "16b8e18c176de0e14bbf018645158151481255474c526abe50be8f48da043210"
+    },
+    "sample_questions.csv": {
+      "rows": 36,
+      "sha256": "94751e1f2ec95b1d2b9cff18e3207a109cdb570a22ef1fadf26f2e8b1ec5758e"
+    }
+  }
+}

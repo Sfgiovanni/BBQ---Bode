@@ -1,0 +1,3 @@
+from brbbq.reporting.report import generate_reports
+
+__all__ = ["generate_reports"]

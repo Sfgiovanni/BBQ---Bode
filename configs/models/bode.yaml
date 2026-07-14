@@ -1,0 +1,10 @@
+adapter: bode_alpaca
+model_name: recogna-nlp/bode-7b-alpaca-pt-br-no-peft
+revision: null
+tokenizer_name: recogna-nlp/bode-7b-alpaca-pt-br-no-peft
+tokenizer_revision: null
+prompt_style: alpaca
+dtype: float16
+device_map: auto
+trust_remote_code: false
+low_cpu_mem_usage: true

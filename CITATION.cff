@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or its artifacts, please cite it using this metadata. Cite the associated paper as well when it becomes available."
+title: "BBQ-Bode: A Bilingual Brazilian Bias Benchmark for BODE"
+type: software
+authors:
+  - family-names: Franco
+    given-names: Giovanni
+    alias: Sfgiovanni
+repository-code: "https://github.com/Sfgiovanni/BBQ---Bode"
+url: "https://github.com/Sfgiovanni/BBQ---Bode"
+license: MIT
+version: 0.2.0
+date-released: 2026-07-14
+keywords:
+  - bias benchmark
+  - Brazilian Portuguese
+  - bilingual evaluation
+  - large language models
+  - question answering

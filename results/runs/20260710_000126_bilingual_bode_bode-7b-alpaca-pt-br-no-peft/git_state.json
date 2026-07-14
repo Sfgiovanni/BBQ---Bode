@@ -1,0 +1,6 @@
+{
+  "commit": "98e76201b6ae13231d69e8eec3a7ecbe23255fb4",
+  "branch": "feature/bilingual-benchmark",
+  "status_short": "M .gitignore\n M README.md\n M requirements.txt\n M results/README.md\n?? CHANGELOG.md\n?? configs/\n?? data/README.md\n?? data/categories_bilingual.yaml\n?? data/scenarios_bilingual.jsonl\n?? docs/\n?? pyproject.toml\n?? scripts/\n?? src/\n?? tests/",
+  "origin": "https://github.com/Sfgiovanni/BBQ.git"
+}

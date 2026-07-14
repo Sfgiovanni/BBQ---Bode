@@ -1,24 +1,56 @@
-# results/
+# Results
 
-Saídas das rodadas de avaliação. Cada rodada fica em
-`run_<timestamp>_<modelo>_<fase>/` e contém:
+This directory separates the reference bilingual experiment from historical
+Portuguese-only outputs.
 
-| arquivo | conteúdo |
+## Reference bilingual run
+
+The paper-oriented artifact is:
+
+```text
+results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/
+```
+
+It contains the complete 19,440-row prediction table in compact Parquet format,
+aggregate metrics, paired bootstrap intervals, publication figures, resolved
+configuration, manifests, runtime metadata, and reports.
+
+| Entry | Description |
 |---|---|
-| `config.json` | configuração da rodada (modelo, seed, nº de exemplos, GPU…) |
-| `base_templates.csv` / `expanded_examples.parquet` | dados de entrada gerados |
-| `raw_predictions.csv` / `.parquet` | 1 linha por (exemplo lógico × permutação) com logprobs |
-| `metrics_*.csv` | métricas agregadas (overall, por categoria, posição, cenário…) |
-| `audit_*.{csv,json}` | auditoria geração-livre × logprob |
-| `token_usage.json` | contagem de tokens e latência |
-| `REPORT.md` + `figures/` | relatório legível e gráficos |
+| `raw_predictions.parquet` | Authoritative row-level model outputs used to calculate every reported metric. |
+| `config_resolved.yaml` | Configuration resolved when the run directory was initialized. |
+| `manifest.json` | Completion state, timestamps, duration, batch size, and evaluation counts. |
+| `dataset_manifest.json` | Dataset cardinalities and evaluated categories. |
+| `metrics/` | Overall, stratified, paired PT/EN, bootstrap, and token-audit outputs. |
+| `figures/` | Ten paper-oriented PNG figures. |
+| `REPORT.md` | Complete computational report. |
+| `REPORT_BRAZIL_SPECIFIC.md` | Separate analysis of Regionality and Religion. |
+| `EXECUTIVE_SUMMARY.md` | Short entry point and interpretation warning. |
 
-## O que está versionado
+Large duplicate CSV predictions, transient checkpoints, logs, and PID/lock
+files remain excluded from version control. The Parquet predictions are enough
+to reproduce all aggregate metrics, reports, and figures with the published
+code.
 
-Para manter o repositório leve, **só a rodada `full` final** é versionada, em
-[`final/`](final/) — e mesmo assim **sem** as predições brutas (`raw_predictions.*`,
-`expanded_examples.parquet`), que são pesadas e regeráveis. As demais rodadas
-(smoke/pilot/testes antigos) ficam fora do controle de versão (ver `.gitignore`).
+Run the isolated report reproduction workflow from the repository root:
 
-Para regenerar qualquer rodada, use os drivers descritos no
-[README principal](../README.md).
+```bash
+scripts/reproduce_reports.sh
+```
+
+Generated artifacts are written to `reproduced/reference_report/` so the
+published run remains unchanged.
+
+## Historical Portuguese run
+
+`legacy_portuguese/` preserves the canonical lightweight output of the earlier
+Portuguese-only pipeline. It is retained for historical comparison and is not
+the reference result of the bilingual experiment.
+
+## Interpretation warning
+
+Computational completion is not equivalent to social validation. Current
+question metadata include unvalidated stereotype directions and translations.
+Do not use these outputs as claims about Brazilian social groups until the
+bilingual expert-review protocol in [`questions/README.md`](../questions/README.md)
+has been completed.
