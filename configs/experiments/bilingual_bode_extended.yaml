@@ -1,0 +1,47 @@
+experiment:
+  name: bilingual_bode_extended
+  seed: 42
+  languages: [pt, en]
+  categories: all
+  templates_per_category: 30
+  # Catalog is heterogeneous (5 or 6 pairs per category, 51 total) --
+  # pairs_per_template is informational only. Actual per-category pair
+  # counts are derived from the YAML by
+  # brbbq.dataset.validation.category_pair_counts; nothing in the code
+  # path treats this field as authoritative. See docs/EXTENDED_PAIRS_AUDIT.md
+  # step 2 for the derivation.
+  pairs_per_template: null
+  conditions_per_pair: 4
+  permutations: 3
+  # Derived from questions/categories_bilingual_extended.yaml (51 pairs):
+  #   logical per language = 30 scenarios * 4 conditions * 51 pairs = 6120
+  #   logical total         = 6120 * 2 languages                    = 12240
+  #   expanded total         = 12240 * 3 permutations                = 36720
+  expected_logical_per_language: 6120
+  expected_logical_total: 12240
+  expected_expanded_total: 36720
+model:
+  config: configs/models/bode.yaml
+inference:
+  # Pinned to 4 (not auto) to match the reference run's final batch size
+  # exactly -- batch size can perturb first-token logprob argmax ties, and
+  # the 27 original pairs need to be comparable to the reference run within
+  # noise, not within noise + a batch-size confound. batch_candidates is
+  # restricted to the same value so a standalone `preflight` sanity check
+  # tests the same batch size actually used by `run`.
+  batch_size: 4
+  batch_candidates: [4]
+  checkpoint_every: 100
+  audit_per_language: 50
+  max_new_tokens_audit: 8
+  scoring_method: first_token_logprob
+  do_sample: false
+  resume: true
+metrics:
+  bootstrap_samples: 1000
+  confidence_level: 0.95
+  cluster_key: semantic_pair_id
+paths:
+  categories: questions/categories_bilingual_extended.yaml
+  scenarios: questions/scenarios_bilingual.jsonl
+  results_root: results/runs

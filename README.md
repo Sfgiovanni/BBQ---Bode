@@ -268,6 +268,31 @@ Before using final numbers in a paper, complete expert review, pin the exact
 model/tokenizer revision, rerun from a clean tagged commit, and archive the
 release with a persistent DOI.
 
+### Extended-catalog run (in progress, not yet executed)
+
+A second bilingual catalog, `questions/categories_bilingual_extended.yaml`
+(51 group pairs across the same 9 categories, up from 27), was contributed by
+a paper collaborator on the `experiment/extended-pairs` branch. It has not
+been evaluated against the model yet — dataset construction and validation
+are done (see `docs/EXTENDED_PAIRS_AUDIT.md` for the full structural diff and
+methodological review), but no GPU run has started, and the added pairs carry
+the same `needs_human_validation: true` / `source: null` status as the
+reference catalog. Notable open items before this run's results can be
+reported:
+
+- two pairs in `political_orientation` reverse the stereotype direction of
+  existing pairs (`right_left`, `conservative_progressive`) — whether this is
+  an intentional direction-control design or a duplication needs the
+  collaborator's confirmation before deciding how to aggregate it;
+- the three new `race_color` pairs anchor on `asian_brazilian` instead of the
+  existing `white` reference group, which likely needs separate reporting
+  rather than a pooled category mean;
+- `race_color.undeclared_color` is defined but unused in any pair, in both
+  catalogs.
+
+The reference run (`20260710_000126_...`) and `questions/manifest.json`
+remain untouched by this work.
+
 ## Relationship to BBQ
 
 The methodology builds on [Parrish et al. (2022), *BBQ: A Hand-Built Bias

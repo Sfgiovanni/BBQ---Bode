@@ -1,8 +1,13 @@
+# Revision pinned 2026-07-26 to the HF repo's current HEAD
+# (ff1ecd8eccbd7bcd04fa247d140cf783f8cd73ec). The repo's lastModified date is
+# 2024-10-25, before and unchanged through the reference run (2026-07-10), so
+# this SHA is the same weights the reference run resolved via revision: null.
+# See docs/EXTENDED_PAIRS_AUDIT.md.
 adapter: bode_alpaca
 model_name: recogna-nlp/bode-7b-alpaca-pt-br-no-peft
-revision: null
+revision: ff1ecd8eccbd7bcd04fa247d140cf783f8cd73ec
 tokenizer_name: recogna-nlp/bode-7b-alpaca-pt-br-no-peft
-tokenizer_revision: null
+tokenizer_revision: ff1ecd8eccbd7bcd04fa247d140cf783f8cd73ec
 prompt_style: alpaca
 dtype: float16
 device_map: auto
