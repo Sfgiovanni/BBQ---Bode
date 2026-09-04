@@ -1,0 +1,8 @@
+{
+  "evaluations": 36720,
+  "input_tokens": 7229358,
+  "output_tokens": 748,
+  "mean_input_tokens": 196.87794117647059,
+  "mean_latency_seconds": 0.49451005298457634,
+  "audit_generations": 100
+}

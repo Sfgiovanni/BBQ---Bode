@@ -1,0 +1,45 @@
+experiment:
+  name: bilingual_bode_extended
+  seed: 42
+  languages:
+  - pt
+  - en
+  categories: all
+  templates_per_category: 30
+  pairs_per_template: null
+  conditions_per_pair: 4
+  permutations: 3
+  expected_logical_per_language: 6120
+  expected_logical_total: 12240
+  expected_expanded_total: 36720
+model:
+  adapter: bode_alpaca
+  model_name: recogna-nlp/bode-7b-alpaca-pt-br-no-peft
+  revision: ff1ecd8eccbd7bcd04fa247d140cf783f8cd73ec
+  tokenizer_name: recogna-nlp/bode-7b-alpaca-pt-br-no-peft
+  tokenizer_revision: ff1ecd8eccbd7bcd04fa247d140cf783f8cd73ec
+  prompt_style: alpaca
+  dtype: float16
+  device_map: auto
+  trust_remote_code: false
+  low_cpu_mem_usage: true
+  config_path: configs/models/bode.yaml
+inference:
+  batch_size: 4
+  batch_candidates:
+  - 4
+  checkpoint_every: 100
+  audit_per_language: 50
+  max_new_tokens_audit: 8
+  scoring_method: first_token_logprob
+  do_sample: false
+  resume: true
+metrics:
+  bootstrap_samples: 1000
+  confidence_level: 0.95
+  cluster_key: semantic_pair_id
+paths:
+  categories: questions/categories_bilingual_extended.yaml
+  scenarios: questions/scenarios_bilingual.jsonl
+  results_root: results/runs
+config_path: /home/franco/BBQ Paper/configs/experiments/bilingual_bode_extended.yaml

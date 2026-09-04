@@ -10,9 +10,21 @@
   `source: null` on every added pair, unchanged from the reference catalog).
 - `configs/experiments/bilingual_bode_extended.yaml`, deriving expected
   counts (6,120 logical/language, 12,240 logical total, 36,720 expanded)
-  directly from the extended catalog. No GPU run has been executed with it
-  yet; see `docs/EXTENDED_PAIRS_AUDIT.md` for the structural diff,
-  methodological review, and open questions blocking the Step 7 report.
+  directly from the extended catalog, pinned to `batch_size: 4` to match the
+  reference run. `configs/models/bode.yaml` now pins the exact model/
+  tokenizer revision (`ff1ecd8eccbd7bcd04fa247d140cf783f8cd73ec`, unchanged
+  since 2024-10-25, confirmed same weights as the reference run's unpinned
+  `revision: null`), closing a known provenance gap.
+- Extended run executed: `results/runs/20260726_112145_bilingual_bode_extended_bode-7b-alpaca-pt-br-no-peft/`
+  (36,720 evaluations, 5h29m on the same RTX 3080 Ti). The 19,440 evaluations
+  shared with the reference run are bit-identical in every scored decision
+  (selected answer, correctness, bias flag) — see
+  `REPORT_EXTENDED_VS_REFERENCE.md` in that run directory for the full
+  comparison, including the political_orientation direction-cancellation and
+  race_color reference-group-mixing effects predicted in
+  `docs/EXTENDED_PAIRS_AUDIT.md`. Four aggregation questions from the audit
+  remain open pending collaborator/author review before these numbers can be
+  used in the paper.
 - `brbbq.dataset.validation.category_pair_counts` / `category_balance`
   helpers, and generalized `validate_catalog`/`validate_dataset` to derive
   expected cardinalities from the catalog's own per-category pair counts
