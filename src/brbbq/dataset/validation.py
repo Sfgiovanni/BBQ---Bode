@@ -4,7 +4,7 @@ from typing import Any, Dict, List
 
 import pandas as pd
 
-from brbbq.dataset.builder import LANGUAGES
+from brbbq.dataset.builder import CONDITIONS, LANGUAGES, PERMUTATIONS
 
 
 EXPECTED_CATEGORY_NAMES_PT = [
@@ -18,6 +18,39 @@ EXPECTED_CATEGORY_NAMES_PT = [
     "Orientação política",
     "Preferência musical",
 ]
+
+
+def category_pair_counts(catalog: Dict[str, Any]) -> Dict[str, int]:
+    """Number of pairs declared per category, as authored in the YAML.
+
+    This is the source of truth for dataset cardinality. Categories are not
+    required to have the same pair count as each other (see the extended
+    catalog, which adds pairs unevenly per category).
+    """
+    return {category["id"]: len(category["pairs"]) for category in catalog["categories"]}
+
+
+def category_balance(logical: pd.DataFrame) -> pd.DataFrame:
+    """Report, per category, how the group-order/negative-actor schedules split.
+
+    Informational only -- not asserted against a fixed ratio. With a uniform
+    pair count per category (the reference catalog) both schedules split
+    exactly 50/50; with heterogeneous pair counts (the extended catalog) some
+    categories can be imbalanced. Callers decide whether that imbalance needs
+    weighting in aggregation.
+    """
+    return (
+        logical.groupby("category_id")
+        .agg(
+            n_rows=("logical_id", "size"),
+            group_order_inverted_share=("group_order_inverted", "mean"),
+            negative_actor_group1_share=(
+                "negative_actor_content",
+                lambda column: (column == "group1").mean(),
+            ),
+        )
+        .reset_index()
+    )
 
 
 def _assert_pairing(logical: pd.DataFrame) -> None:
@@ -77,7 +110,7 @@ def validate_catalog(catalog: Dict[str, Any], scenarios: List[Dict[str, Any]]) -
     assert len(scenarios) == 30
     assert len({scenario["scenario_id"] for scenario in scenarios}) == 30
     for category in categories:
-        assert len(category["pairs"]) == 3
+        assert len(category["pairs"]) >= 1, category["id"]
         ids = {group["id"] for group in category["groups"]}
         for pair in category["pairs"]:
             assert pair["target"] in ids and pair["comparison"] in ids
@@ -105,33 +138,64 @@ def validate_dataset(
     logical: pd.DataFrame,
     expanded: pd.DataFrame,
 ) -> Dict[str, int]:
-    """Validate all required cardinalities and semantic invariants."""
+    """Validate all required cardinalities and semantic invariants.
+
+    Cardinalities are derived from the catalog's own pair counts per
+    category, not hardcoded -- categories may have different pair counts
+    (see the extended catalog). With the reference catalog (3 pairs in every
+    category) this reduces to the original fixed numbers (270/6480/19440).
+    """
     validate_catalog(catalog, scenarios)
-    assert len(templates) == 270
-    assert (templates.groupby("category_id").size() == 30).all()
-    assert len(logical) == 6480
-    assert logical["logical_id"].nunique() == 6480
-    assert logical["semantic_pair_id"].nunique() == 3240
-    assert (logical.groupby("language").size() == 3240).all()
-    assert (logical.groupby(["category_id", "language"]).size() == 360).all()
-    assert (logical.groupby(["template_id", "language"]).size() == 12).all()
-    assert (logical.groupby(["language", "condition_id"]).size() == 810).all()
-    assert (logical.groupby(["category_id", "group_order_inverted"]).size() == 360).all()
-    assert (logical.groupby(["category_id", "negative_actor_content"]).size() == 360).all()
+    n_categories = len(catalog["categories"])
+    n_scenarios = len(scenarios)
+    n_conditions = len(CONDITIONS)
+    n_languages = len(LANGUAGES)
+    n_permutations = len(PERMUTATIONS)
+    pair_counts = category_pair_counts(catalog)
+    total_pairs = sum(pair_counts.values())
+
+    expected_templates = n_categories * n_scenarios
+    assert len(templates) == expected_templates
+    assert (templates.groupby("category_id").size() == n_scenarios).all()
+
+    expected_semantic_pairs = total_pairs * n_scenarios * n_conditions
+    expected_logical_total = expected_semantic_pairs * n_languages
+    assert len(logical) == expected_logical_total
+    assert logical["logical_id"].nunique() == expected_logical_total
+    assert logical["semantic_pair_id"].nunique() == expected_semantic_pairs
+    assert (logical.groupby("language").size() == expected_semantic_pairs).all()
+
+    category_language_counts = logical.groupby(["category_id", "language"]).size()
+    for category_id, pairs_in_category in pair_counts.items():
+        expected = pairs_in_category * n_scenarios * n_conditions
+        for language in LANGUAGES:
+            assert category_language_counts[(category_id, language)] == expected, (
+                category_id,
+                language,
+            )
+
+    template_language_counts = logical.groupby(["template_id", "category_id", "language"]).size()
+    for (template_id, category_id, _language), count in template_language_counts.items():
+        assert count == pair_counts[category_id] * n_conditions, template_id
+
+    expected_per_condition = expected_semantic_pairs // n_conditions
+    assert (logical.groupby(["language", "condition_id"]).size() == expected_per_condition).all()
+
     assert (
         not logical[["context", "question", "group1", "group2"]]
         .apply(lambda column: column.str.contains(r"\{[^}]+\}", regex=True).any())
         .any()
     )
-    assert len(expanded) == 19440
-    assert expanded["example_id"].nunique() == 19440
+    expected_expanded_total = expected_logical_total * n_permutations
+    assert len(expanded) == expected_expanded_total
+    assert expanded["example_id"].nunique() == expected_expanded_total
     assert not expanded.duplicated(["logical_id", "permutation_index"]).any()
-    assert (expanded.groupby("correct_option").size() == 6480).all()
+    assert (expanded.groupby("correct_option").size() == expected_logical_total).all()
     _assert_pairing(logical)
     _assert_permutations(expanded)
     return {
-        "categories": 9,
-        "scenarios": 30,
+        "categories": n_categories,
+        "scenarios": n_scenarios,
         "templates": len(templates),
         "semantic_pairs": logical["semantic_pair_id"].nunique(),
         "logical_examples": len(logical),

@@ -12,6 +12,14 @@ import yaml
 
 LANGUAGES = ("pt", "en")
 LETTERS = ("A", "B", "C")
+# Reference run 20260710_000126 built every category with exactly 3 pairs and
+# used that count as the stride for the group-order/negative-actor schedules.
+# Freezing it here (instead of reading len(category["pairs"])) keeps those
+# schedules identical for the original pairs when new pairs are appended to a
+# category, so appending is a true content superset rather than a reshuffle.
+# Only valid if new pairs are appended after, not inserted among, the
+# original ones for a given category.
+REFERENCE_PAIRS_PER_CATEGORY = 3
 PERMUTATIONS = {
     0: ("group1", "group2", "unknown"),
     1: ("unknown", "group1", "group2"),
@@ -108,13 +116,15 @@ def build_logical_examples(
             template_id = "{}.{}".format(category["id"], scenario["scenario_id"])
             for pair_index, pair in enumerate(category["pairs"]):
                 target_id, comparison_id = pair["target"], pair["comparison"]
-                invert_order = (scenario_index * len(category["pairs"]) + pair_index) % 2 == 1
+                invert_order = (
+                    scenario_index * REFERENCE_PAIRS_PER_CATEGORY + pair_index
+                ) % 2 == 1
                 group1_id, group2_id = (
                     (comparison_id, target_id) if invert_order else (target_id, comparison_id)
                 )
                 target_content = _content_for_group(target_id, group1_id)
                 comparison_content = _content_for_group(comparison_id, group1_id)
-                pair_sequence = scenario_index * len(category["pairs"]) + pair_index
+                pair_sequence = scenario_index * REFERENCE_PAIRS_PER_CATEGORY + pair_index
                 # 0011 schedule is orthogonal to the 0101 group-order schedule.
                 target_is_negative = (pair_sequence // 2) % 2 == 0
                 negative_content = target_content if target_is_negative else comparison_content

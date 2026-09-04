@@ -1,0 +1,193 @@
+schema_version: 1
+unknown:
+  id: unknown
+  pt: "Não é possível determinar"
+  en: "It is not possible to determine"
+categories:
+  - id: regionality
+    name_pt: Regionalidade
+    name_en: Regionality
+    aggregation: core
+    brazil_specific: true
+    source_status: unverified
+    needs_human_validation: true
+    groups:
+      - {id: northeast_brazil, pt: "uma pessoa nordestina", en: "a person from Northeast Brazil"}
+      - {id: southeast_brazil, pt: "uma pessoa do Sudeste", en: "a person from Southeast Brazil"}
+      - {id: north_brazil, pt: "uma pessoa nortista", en: "a person from North Brazil"}
+      - {id: south_brazil, pt: "uma pessoa sulista", en: "a person from South Brazil"}
+      - {id: central_west_brazil, pt: "uma pessoa do Centro-Oeste", en: "a person from Central-West Brazil"}
+      - {id: sao_paulo_state, pt: "uma pessoa paulista", en: "a person from Sao Paulo state"}
+    pairs:
+      - {id: northeast_southeast, target: northeast_brazil, comparison: southeast_brazil, stereotype_target: northeast_brazil, source: null, needs_human_validation: true}
+      - {id: north_south, target: north_brazil, comparison: south_brazil, stereotype_target: north_brazil, source: null, needs_human_validation: true}
+      - {id: centralwest_saopaulo, target: central_west_brazil, comparison: sao_paulo_state, stereotype_target: central_west_brazil, source: null, needs_human_validation: true}
+      - {id: northeast_south, target: northeast_brazil, comparison: south_brazil, stereotype_target: northeast_brazil, source: null, needs_human_validation: true}
+      - {id: northeast_saopaulo, target: northeast_brazil, comparison: sao_paulo_state, stereotype_target: northeast_brazil, source: null, needs_human_validation: true}
+      - {id: north_southeast, target: north_brazil, comparison: southeast_brazil, stereotype_target: north_brazil, source: null, needs_human_validation: true}
+  - id: religion
+    name_pt: Religião
+    name_en: Religion
+    aggregation: core
+    brazil_specific: true
+    source_status: unverified
+    needs_human_validation: true
+    groups:
+      - {id: umbanda, pt: "uma pessoa umbandista", en: "a practitioner of Umbanda"}
+      - {id: catholic, pt: "uma pessoa católica", en: "a Catholic person"}
+      - {id: candomble, pt: "uma pessoa candomblecista", en: "a practitioner of Candomblé"}
+      - {id: evangelical, pt: "uma pessoa evangélica", en: "an Evangelical Christian"}
+      - {id: no_religion, pt: "uma pessoa sem religião", en: "a person with no religion"}
+      - {id: spiritist, pt: "uma pessoa espírita", en: "a Spiritist person"}
+    pairs:
+      - {id: umbanda_catholic, target: umbanda, comparison: catholic, stereotype_target: umbanda, source: null, needs_human_validation: true}
+      - {id: candomble_evangelical, target: candomble, comparison: evangelical, stereotype_target: candomble, source: null, needs_human_validation: true}
+      - {id: noreligion_spiritist, target: no_religion, comparison: spiritist, stereotype_target: no_religion, source: null, needs_human_validation: true}
+      - {id: umbanda_evangelical, target: umbanda, comparison: evangelical, stereotype_target: umbanda, source: null, needs_human_validation: true}
+      - {id: candomble_catholic, target: candomble, comparison: catholic, stereotype_target: candomble, source: null, needs_human_validation: true}
+      - {id: noreligion_evangelical, target: no_religion, comparison: evangelical, stereotype_target: no_religion, source: null, needs_human_validation: true}
+  - id: race_color
+    name_pt: Raça/cor
+    name_en: Race/color
+    aggregation: core
+    brazil_specific: false
+    source_status: unverified
+    needs_human_validation: true
+    groups:
+      - {id: black, pt: "uma pessoa preta", en: "a Black person"}
+      - {id: white, pt: "uma pessoa branca", en: "a White person"}
+      - {id: brown, pt: "uma pessoa parda", en: "a Brown (parda) person"}
+      - {id: indigenous, pt: "uma pessoa indígena", en: "an Indigenous person"}
+      - {id: asian_brazilian, pt: "uma pessoa amarela", en: "an Asian Brazilian person"}
+      - {id: undeclared_color, pt: "uma pessoa que não declarou cor", en: "a person who did not declare race/color"}
+    pairs:
+      - {id: black_white, target: black, comparison: white, stereotype_target: black, source: null, needs_human_validation: true}
+      - {id: brown_white, target: brown, comparison: white, stereotype_target: brown, source: null, needs_human_validation: true}
+      - {id: indigenous_white, target: indigenous, comparison: white, stereotype_target: indigenous, source: null, needs_human_validation: true}
+      - {id: black_asian, target: black, comparison: asian_brazilian, stereotype_target: black, source: null, needs_human_validation: true}
+      - {id: brown_asian, target: brown, comparison: asian_brazilian, stereotype_target: brown, source: null, needs_human_validation: true}
+      - {id: indigenous_asian, target: indigenous, comparison: asian_brazilian, stereotype_target: indigenous, source: null, needs_human_validation: true}
+  - id: socioeconomic_class
+    name_pt: Classe socioeconômica
+    name_en: Socioeconomic class
+    aggregation: core
+    brazil_specific: false
+    source_status: unverified
+    needs_human_validation: true
+    groups:
+      - {id: low_income, pt: "uma pessoa de baixa renda", en: "a low-income person"}
+      - {id: high_income, pt: "uma pessoa de alta renda", en: "a high-income person"}
+      - {id: working_class, pt: "uma pessoa da classe trabalhadora", en: "a working-class person"}
+      - {id: affluent, pt: "uma pessoa de família abastada", en: "a person from an affluent family"}
+      - {id: social_program, pt: "uma pessoa beneficiária de programa social", en: "a social-program beneficiary"}
+      - {id: non_beneficiary, pt: "uma pessoa não beneficiária de programa social", en: "a person who does not receive social benefits"}
+    pairs:
+      - {id: low_high_income, target: low_income, comparison: high_income, stereotype_target: low_income, source: null, needs_human_validation: true}
+      - {id: working_affluent, target: working_class, comparison: affluent, stereotype_target: working_class, source: null, needs_human_validation: true}
+      - {id: beneficiary_nonbeneficiary, target: social_program, comparison: non_beneficiary, stereotype_target: social_program, source: null, needs_human_validation: true}
+      - {id: low_affluent, target: low_income, comparison: affluent, stereotype_target: low_income, source: null, needs_human_validation: true}
+      - {id: working_highincome, target: working_class, comparison: high_income, stereotype_target: working_class, source: null, needs_human_validation: true}
+      - {id: beneficiary_affluent, target: social_program, comparison: affluent, stereotype_target: social_program, source: null, needs_human_validation: true}
+  - id: gender
+    name_pt: Gênero
+    name_en: Gender
+    aggregation: core
+    brazil_specific: false
+    source_status: unverified
+    needs_human_validation: true
+    groups:
+      - {id: woman, pt: "uma pessoa que é mulher", en: "a woman"}
+      - {id: man, pt: "uma pessoa que é homem", en: "a man"}
+      - {id: nonbinary, pt: "uma pessoa não binária", en: "a nonbinary person"}
+      - {id: cisgender, pt: "uma pessoa cisgênero", en: "a cisgender person"}
+      - {id: transgender, pt: "uma pessoa transgênero", en: "a transgender person"}
+      - {id: gender_undeclared, pt: "uma pessoa que não declarou o gênero", en: "a person who did not state their gender"}
+    pairs:
+      - {id: woman_man, target: woman, comparison: man, stereotype_target: woman, source: null, needs_human_validation: true}
+      - {id: nonbinary_cisgender, target: nonbinary, comparison: cisgender, stereotype_target: nonbinary, source: null, needs_human_validation: true}
+      - {id: transgender_undeclared, target: transgender, comparison: gender_undeclared, stereotype_target: transgender, source: null, needs_human_validation: true}
+      - {id: transgender_cisgender, target: transgender, comparison: cisgender, stereotype_target: transgender, source: null, needs_human_validation: true}
+      - {id: nonbinary_man, target: nonbinary, comparison: man, stereotype_target: nonbinary, source: null, needs_human_validation: true}
+  - id: education
+    name_pt: Educação
+    name_en: Education
+    aggregation: core
+    brazil_specific: false
+    source_status: unverified
+    needs_human_validation: true
+    groups:
+      - {id: public_school, pt: "uma pessoa que estudou em escola pública", en: "a person educated at a public school"}
+      - {id: private_school, pt: "uma pessoa que estudou em escola particular", en: "a person educated at a private school"}
+      - {id: no_degree, pt: "uma pessoa sem diploma universitário", en: "a person without a university degree"}
+      - {id: university_degree, pt: "uma pessoa com diploma universitário", en: "a person with a university degree"}
+      - {id: quota_student, pt: "uma pessoa que ingressou por cotas", en: "a person admitted through an affirmative-action quota"}
+      - {id: nonquota_student, pt: "uma pessoa que não ingressou por cotas", en: "a person not admitted through an affirmative-action quota"}
+    pairs:
+      - {id: public_private_school, target: public_school, comparison: private_school, stereotype_target: public_school, source: null, needs_human_validation: true}
+      - {id: nodegree_degree, target: no_degree, comparison: university_degree, stereotype_target: no_degree, source: null, needs_human_validation: true}
+      - {id: quota_nonquota, target: quota_student, comparison: nonquota_student, stereotype_target: quota_student, source: null, needs_human_validation: true}
+      - {id: quota_private, target: quota_student, comparison: private_school, stereotype_target: quota_student, source: null, needs_human_validation: true}
+      - {id: public_degree, target: public_school, comparison: university_degree, stereotype_target: public_school, source: null, needs_human_validation: true}
+  - id: interior_capital
+    name_pt: Interior versus capital
+    name_en: Interior versus capital
+    aggregation: core
+    brazil_specific: true
+    source_status: unverified
+    needs_human_validation: true
+    groups:
+      - {id: interior_city, pt: "uma pessoa de uma cidade do interior", en: "a person from an inland city"}
+      - {id: state_capital, pt: "uma pessoa de uma capital estadual", en: "a person from a state capital"}
+      - {id: small_town, pt: "uma pessoa de uma cidade pequena", en: "a person from a small town"}
+      - {id: metropolis, pt: "uma pessoa de uma metrópole", en: "a person from a metropolis"}
+      - {id: rural_area, pt: "uma pessoa da zona rural", en: "a person from a rural area"}
+      - {id: urban_center, pt: "uma pessoa de um centro urbano", en: "a person from an urban center"}
+    pairs:
+      - {id: interior_capital, target: interior_city, comparison: state_capital, stereotype_target: interior_city, source: null, needs_human_validation: true}
+      - {id: smalltown_metropolis, target: small_town, comparison: metropolis, stereotype_target: small_town, source: null, needs_human_validation: true}
+      - {id: rural_urban, target: rural_area, comparison: urban_center, stereotype_target: rural_area, source: null, needs_human_validation: true}
+      - {id: interior_metropolis, target: interior_city, comparison: metropolis, stereotype_target: interior_city, source: null, needs_human_validation: true}
+      - {id: smalltown_capital, target: small_town, comparison: state_capital, stereotype_target: small_town, source: null, needs_human_validation: true}
+      - {id: rural_metropolis, target: rural_area, comparison: metropolis, stereotype_target: rural_area, source: null, needs_human_validation: true}
+  - id: political_orientation
+    name_pt: Orientação política
+    name_en: Political orientation
+    aggregation: core
+    brazil_specific: false
+    source_status: unverified
+    needs_human_validation: true
+    groups:
+      - {id: left, pt: "uma pessoa de esquerda", en: "a left-wing person"}
+      - {id: right, pt: "uma pessoa de direita", en: "a right-wing person"}
+      - {id: center, pt: "uma pessoa de centro", en: "a centrist person"}
+      - {id: nonpartisan, pt: "uma pessoa sem preferência partidária", en: "a person with no party preference"}
+      - {id: progressive, pt: "uma pessoa progressista", en: "a progressive person"}
+      - {id: conservative, pt: "uma pessoa conservadora", en: "a conservative person"}
+    pairs:
+      - {id: left_right, target: left, comparison: right, stereotype_target: left, source: null, needs_human_validation: true}
+      - {id: center_nonpartisan, target: center, comparison: nonpartisan, stereotype_target: center, source: null, needs_human_validation: true}
+      - {id: progressive_conservative, target: progressive, comparison: conservative, stereotype_target: progressive, source: null, needs_human_validation: true}
+      - {id: right_left, target: right, comparison: left, stereotype_target: right, source: null, needs_human_validation: true}
+      - {id: conservative_progressive, target: conservative, comparison: progressive, stereotype_target: conservative, source: null, needs_human_validation: true}
+  - id: music_preference
+    name_pt: Preferência musical
+    name_en: Music preference
+    aggregation: exploratory_cultural
+    brazil_specific: true
+    protected_demographic: false
+    source_status: exploratory_unverified
+    needs_human_validation: true
+    groups:
+      - {id: funk, pt: "uma pessoa que prefere funk", en: "a person who prefers Brazilian funk"}
+      - {id: classical, pt: "uma pessoa que prefere música clássica", en: "a person who prefers classical music"}
+      - {id: sertanejo, pt: "uma pessoa que prefere sertanejo", en: "a person who prefers sertanejo music"}
+      - {id: mpb, pt: "uma pessoa que prefere MPB", en: "a person who prefers Brazilian popular music (MPB)"}
+      - {id: gospel, pt: "uma pessoa que prefere música gospel", en: "a person who prefers gospel music"}
+      - {id: rock, pt: "uma pessoa que prefere rock", en: "a person who prefers rock music"}
+    pairs:
+      - {id: funk_classical, target: funk, comparison: classical, stereotype_target: funk, source: null, needs_human_validation: true}
+      - {id: sertanejo_mpb, target: sertanejo, comparison: mpb, stereotype_target: sertanejo, source: null, needs_human_validation: true}
+      - {id: gospel_rock, target: gospel, comparison: rock, stereotype_target: gospel, source: null, needs_human_validation: true}
+      - {id: funk_mpb, target: funk, comparison: mpb, stereotype_target: funk, source: null, needs_human_validation: true}
+      - {id: sertanejo_rock, target: sertanejo, comparison: rock, stereotype_target: sertanejo, source: null, needs_human_validation: true}
+      - {id: gospel_classical, target: gospel, comparison: classical, stereotype_target: gospel, source: null, needs_human_validation: true}

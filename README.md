@@ -268,6 +268,41 @@ Before using final numbers in a paper, complete expert review, pin the exact
 model/tokenizer revision, rerun from a clean tagged commit, and archive the
 release with a persistent DOI.
 
+### Extended-catalog run (executed, pending methodological review)
+
+A second bilingual catalog, `questions/categories_bilingual_extended.yaml`
+(51 group pairs across the same 9 categories, up from 27), was contributed by
+a paper collaborator on the `experiment/extended-pairs` branch and evaluated
+in `results/runs/20260726_112145_bilingual_bode_extended_bode-7b-alpaca-pt-br-no-peft/`
+(36,720 evaluations, same seed/model/scoring as the reference run, model
+revision pinned to `ff1ecd8eccbd7bcd04fa247d140cf783f8cd73ec`). The added
+pairs still carry the same `needs_human_validation: true` / `source: null`
+status as the reference catalog — nothing about running the evaluation
+constitutes expert review.
+
+The 19,440 evaluations shared with the reference run are bit-identical in
+every scored decision, confirming the extended run is a true superset, not a
+re-derivation. See that run's `REPORT_EXTENDED_VS_REFERENCE.md` for the full
+comparison and `docs/EXTENDED_PAIRS_AUDIT.md` for the methodology review.
+Notable open items before these numbers can be reported in the paper:
+
+- two pairs in `political_orientation` reverse the stereotype direction of
+  existing pairs (`right_left`, `conservative_progressive`); the run confirms
+  they nearly cancel each other in the pooled category `s_AMB` (-0.1815 to
+  -0.0389) — whether that's an intentional direction-control design or a
+  duplication needs the collaborator's confirmation before deciding how to
+  report it;
+- the three new `race_color` pairs anchor on `asian_brazilian` instead of the
+  existing `white` reference group, and the run confirms the two anchors
+  produce different-signed `s_AMB` (white-anchored: negative; asian-anchored:
+  near-zero/positive) — pooling them into one category mean averages across
+  two different constructs;
+- `race_color.undeclared_color` is defined but unused in any pair, in both
+  catalogs.
+
+The reference run (`20260710_000126_...`) and `questions/manifest.json`
+remain untouched by this work.
+
 ## Relationship to BBQ
 
 The methodology builds on [Parrish et al. (2022), *BBQ: A Hand-Built Bias
