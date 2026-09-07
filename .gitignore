@@ -88,3 +88,6 @@ reproduced/
 
 # Reconstruido: a regra *token* acima escondia este ARQUIVO DE CODIGO
 !src/brbbq/scoring/tokens.py
+
+# Arquivos intermediarios dos lotes da OpenAI (entrada/saida por lote)
+work_openai/
