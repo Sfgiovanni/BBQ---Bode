@@ -1,0 +1,271 @@
+template_id,category_id,category_pt,category_en,category_index,scenario_id,scenario_index,aggregation,brazil_specific,source_status,needs_human_validation
+regionality.entrevista_emprego,regionality,Regionalidade,Regionality,0,entrevista_emprego,0,core,True,unverified,True
+regionality.evento_comunitario,regionality,Regionalidade,Regionality,0,evento_comunitario,1,core,True,unverified,True
+regionality.trabalho_em_grupo,regionality,Regionalidade,Regionality,0,trabalho_em_grupo,2,core,True,unverified,True
+regionality.reuniao_predio,regionality,Regionalidade,Regionality,0,reuniao_predio,3,core,True,unverified,True
+regionality.atendimento_cliente,regionality,Regionalidade,Regionality,0,atendimento_cliente,4,core,True,unverified,True
+regionality.apresentacao_escolar,regionality,Regionalidade,Regionality,0,apresentacao_escolar,5,core,True,unverified,True
+regionality.projeto_empresa,regionality,Regionalidade,Regionality,0,projeto_empresa,6,core,True,unverified,True
+regionality.campanha_doacao,regionality,Regionalidade,Regionality,0,campanha_doacao,7,core,True,unverified,True
+regionality.plantao_voluntario,regionality,Regionalidade,Regionality,0,plantao_voluntario,8,core,True,unverified,True
+regionality.relatorio_dados,regionality,Regionalidade,Regionality,0,relatorio_dados,9,core,True,unverified,True
+regionality.atividade_treinamento,regionality,Regionalidade,Regionality,0,atividade_treinamento,10,core,True,unverified,True
+regionality.formulario_publico,regionality,Regionalidade,Regionality,0,formulario_publico,11,core,True,unverified,True
+regionality.recepcao_hospitalar,regionality,Regionalidade,Regionality,0,recepcao_hospitalar,12,core,True,unverified,True
+regionality.reserva_restaurante,regionality,Regionalidade,Regionality,0,reserva_restaurante,13,core,True,unverified,True
+regionality.entrega_pacotes,regionality,Regionalidade,Regionality,0,entrega_pacotes,14,core,True,unverified,True
+regionality.biblioteca,regionality,Regionalidade,Regionality,0,biblioteca,15,core,True,unverified,True
+regionality.concurso_local,regionality,Regionalidade,Regionality,0,concurso_local,16,core,True,unverified,True
+regionality.oficina_tecnica,regionality,Regionalidade,Regionality,0,oficina_tecnica,17,core,True,unverified,True
+regionality.treino_esportivo,regionality,Regionalidade,Regionality,0,treino_esportivo,18,core,True,unverified,True
+regionality.estoque_loja,regionality,Regionalidade,Regionality,0,estoque_loja,19,core,True,unverified,True
+regionality.prestacao_contas,regionality,Regionalidade,Regionality,0,prestacao_contas,20,core,True,unverified,True
+regionality.suporte_telefone,regionality,Regionalidade,Regionality,0,suporte_telefone,21,core,True,unverified,True
+regionality.programa_mentoria,regionality,Regionalidade,Regionality,0,programa_mentoria,22,core,True,unverified,True
+regionality.rodizio_funcao,regionality,Regionalidade,Regionality,0,rodizio_funcao,23,core,True,unverified,True
+regionality.transporte_publico,regionality,Regionalidade,Regionality,0,transporte_publico,24,core,True,unverified,True
+regionality.oficina_midia,regionality,Regionalidade,Regionality,0,oficina_midia,25,core,True,unverified,True
+regionality.horta_comunitaria,regionality,Regionalidade,Regionality,0,horta_comunitaria,26,core,True,unverified,True
+regionality.treinamento_seguranca,regionality,Regionalidade,Regionality,0,treinamento_seguranca,27,core,True,unverified,True
+regionality.orcamento_evento,regionality,Regionalidade,Regionality,0,orcamento_evento,28,core,True,unverified,True
+regionality.revisao_documento,regionality,Regionalidade,Regionality,0,revisao_documento,29,core,True,unverified,True
+religion.entrevista_emprego,religion,Religião,Religion,1,entrevista_emprego,0,core,True,unverified,True
+religion.evento_comunitario,religion,Religião,Religion,1,evento_comunitario,1,core,True,unverified,True
+religion.trabalho_em_grupo,religion,Religião,Religion,1,trabalho_em_grupo,2,core,True,unverified,True
+religion.reuniao_predio,religion,Religião,Religion,1,reuniao_predio,3,core,True,unverified,True
+religion.atendimento_cliente,religion,Religião,Religion,1,atendimento_cliente,4,core,True,unverified,True
+religion.apresentacao_escolar,religion,Religião,Religion,1,apresentacao_escolar,5,core,True,unverified,True
+religion.projeto_empresa,religion,Religião,Religion,1,projeto_empresa,6,core,True,unverified,True
+religion.campanha_doacao,religion,Religião,Religion,1,campanha_doacao,7,core,True,unverified,True
+religion.plantao_voluntario,religion,Religião,Religion,1,plantao_voluntario,8,core,True,unverified,True
+religion.relatorio_dados,religion,Religião,Religion,1,relatorio_dados,9,core,True,unverified,True
+religion.atividade_treinamento,religion,Religião,Religion,1,atividade_treinamento,10,core,True,unverified,True
+religion.formulario_publico,religion,Religião,Religion,1,formulario_publico,11,core,True,unverified,True
+religion.recepcao_hospitalar,religion,Religião,Religion,1,recepcao_hospitalar,12,core,True,unverified,True
+religion.reserva_restaurante,religion,Religião,Religion,1,reserva_restaurante,13,core,True,unverified,True
+religion.entrega_pacotes,religion,Religião,Religion,1,entrega_pacotes,14,core,True,unverified,True
+religion.biblioteca,religion,Religião,Religion,1,biblioteca,15,core,True,unverified,True
+religion.concurso_local,religion,Religião,Religion,1,concurso_local,16,core,True,unverified,True
+religion.oficina_tecnica,religion,Religião,Religion,1,oficina_tecnica,17,core,True,unverified,True
+religion.treino_esportivo,religion,Religião,Religion,1,treino_esportivo,18,core,True,unverified,True
+religion.estoque_loja,religion,Religião,Religion,1,estoque_loja,19,core,True,unverified,True
+religion.prestacao_contas,religion,Religião,Religion,1,prestacao_contas,20,core,True,unverified,True
+religion.suporte_telefone,religion,Religião,Religion,1,suporte_telefone,21,core,True,unverified,True
+religion.programa_mentoria,religion,Religião,Religion,1,programa_mentoria,22,core,True,unverified,True
+religion.rodizio_funcao,religion,Religião,Religion,1,rodizio_funcao,23,core,True,unverified,True
+religion.transporte_publico,religion,Religião,Religion,1,transporte_publico,24,core,True,unverified,True
+religion.oficina_midia,religion,Religião,Religion,1,oficina_midia,25,core,True,unverified,True
+religion.horta_comunitaria,religion,Religião,Religion,1,horta_comunitaria,26,core,True,unverified,True
+religion.treinamento_seguranca,religion,Religião,Religion,1,treinamento_seguranca,27,core,True,unverified,True
+religion.orcamento_evento,religion,Religião,Religion,1,orcamento_evento,28,core,True,unverified,True
+religion.revisao_documento,religion,Religião,Religion,1,revisao_documento,29,core,True,unverified,True
+race_color.entrevista_emprego,race_color,Raça/cor,Race/color,2,entrevista_emprego,0,core,False,unverified,True
+race_color.evento_comunitario,race_color,Raça/cor,Race/color,2,evento_comunitario,1,core,False,unverified,True
+race_color.trabalho_em_grupo,race_color,Raça/cor,Race/color,2,trabalho_em_grupo,2,core,False,unverified,True
+race_color.reuniao_predio,race_color,Raça/cor,Race/color,2,reuniao_predio,3,core,False,unverified,True
+race_color.atendimento_cliente,race_color,Raça/cor,Race/color,2,atendimento_cliente,4,core,False,unverified,True
+race_color.apresentacao_escolar,race_color,Raça/cor,Race/color,2,apresentacao_escolar,5,core,False,unverified,True
+race_color.projeto_empresa,race_color,Raça/cor,Race/color,2,projeto_empresa,6,core,False,unverified,True
+race_color.campanha_doacao,race_color,Raça/cor,Race/color,2,campanha_doacao,7,core,False,unverified,True
+race_color.plantao_voluntario,race_color,Raça/cor,Race/color,2,plantao_voluntario,8,core,False,unverified,True
+race_color.relatorio_dados,race_color,Raça/cor,Race/color,2,relatorio_dados,9,core,False,unverified,True
+race_color.atividade_treinamento,race_color,Raça/cor,Race/color,2,atividade_treinamento,10,core,False,unverified,True
+race_color.formulario_publico,race_color,Raça/cor,Race/color,2,formulario_publico,11,core,False,unverified,True
+race_color.recepcao_hospitalar,race_color,Raça/cor,Race/color,2,recepcao_hospitalar,12,core,False,unverified,True
+race_color.reserva_restaurante,race_color,Raça/cor,Race/color,2,reserva_restaurante,13,core,False,unverified,True
+race_color.entrega_pacotes,race_color,Raça/cor,Race/color,2,entrega_pacotes,14,core,False,unverified,True
+race_color.biblioteca,race_color,Raça/cor,Race/color,2,biblioteca,15,core,False,unverified,True
+race_color.concurso_local,race_color,Raça/cor,Race/color,2,concurso_local,16,core,False,unverified,True
+race_color.oficina_tecnica,race_color,Raça/cor,Race/color,2,oficina_tecnica,17,core,False,unverified,True
+race_color.treino_esportivo,race_color,Raça/cor,Race/color,2,treino_esportivo,18,core,False,unverified,True
+race_color.estoque_loja,race_color,Raça/cor,Race/color,2,estoque_loja,19,core,False,unverified,True
+race_color.prestacao_contas,race_color,Raça/cor,Race/color,2,prestacao_contas,20,core,False,unverified,True
+race_color.suporte_telefone,race_color,Raça/cor,Race/color,2,suporte_telefone,21,core,False,unverified,True
+race_color.programa_mentoria,race_color,Raça/cor,Race/color,2,programa_mentoria,22,core,False,unverified,True
+race_color.rodizio_funcao,race_color,Raça/cor,Race/color,2,rodizio_funcao,23,core,False,unverified,True
+race_color.transporte_publico,race_color,Raça/cor,Race/color,2,transporte_publico,24,core,False,unverified,True
+race_color.oficina_midia,race_color,Raça/cor,Race/color,2,oficina_midia,25,core,False,unverified,True
+race_color.horta_comunitaria,race_color,Raça/cor,Race/color,2,horta_comunitaria,26,core,False,unverified,True
+race_color.treinamento_seguranca,race_color,Raça/cor,Race/color,2,treinamento_seguranca,27,core,False,unverified,True
+race_color.orcamento_evento,race_color,Raça/cor,Race/color,2,orcamento_evento,28,core,False,unverified,True
+race_color.revisao_documento,race_color,Raça/cor,Race/color,2,revisao_documento,29,core,False,unverified,True
+socioeconomic_class.entrevista_emprego,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,entrevista_emprego,0,core,False,unverified,True
+socioeconomic_class.evento_comunitario,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,evento_comunitario,1,core,False,unverified,True
+socioeconomic_class.trabalho_em_grupo,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,trabalho_em_grupo,2,core,False,unverified,True
+socioeconomic_class.reuniao_predio,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,reuniao_predio,3,core,False,unverified,True
+socioeconomic_class.atendimento_cliente,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,atendimento_cliente,4,core,False,unverified,True
+socioeconomic_class.apresentacao_escolar,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,apresentacao_escolar,5,core,False,unverified,True
+socioeconomic_class.projeto_empresa,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,projeto_empresa,6,core,False,unverified,True
+socioeconomic_class.campanha_doacao,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,campanha_doacao,7,core,False,unverified,True
+socioeconomic_class.plantao_voluntario,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,plantao_voluntario,8,core,False,unverified,True
+socioeconomic_class.relatorio_dados,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,relatorio_dados,9,core,False,unverified,True
+socioeconomic_class.atividade_treinamento,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,atividade_treinamento,10,core,False,unverified,True
+socioeconomic_class.formulario_publico,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,formulario_publico,11,core,False,unverified,True
+socioeconomic_class.recepcao_hospitalar,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,recepcao_hospitalar,12,core,False,unverified,True
+socioeconomic_class.reserva_restaurante,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,reserva_restaurante,13,core,False,unverified,True
+socioeconomic_class.entrega_pacotes,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,entrega_pacotes,14,core,False,unverified,True
+socioeconomic_class.biblioteca,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,biblioteca,15,core,False,unverified,True
+socioeconomic_class.concurso_local,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,concurso_local,16,core,False,unverified,True
+socioeconomic_class.oficina_tecnica,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,oficina_tecnica,17,core,False,unverified,True
+socioeconomic_class.treino_esportivo,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,treino_esportivo,18,core,False,unverified,True
+socioeconomic_class.estoque_loja,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,estoque_loja,19,core,False,unverified,True
+socioeconomic_class.prestacao_contas,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,prestacao_contas,20,core,False,unverified,True
+socioeconomic_class.suporte_telefone,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,suporte_telefone,21,core,False,unverified,True
+socioeconomic_class.programa_mentoria,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,programa_mentoria,22,core,False,unverified,True
+socioeconomic_class.rodizio_funcao,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,rodizio_funcao,23,core,False,unverified,True
+socioeconomic_class.transporte_publico,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,transporte_publico,24,core,False,unverified,True
+socioeconomic_class.oficina_midia,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,oficina_midia,25,core,False,unverified,True
+socioeconomic_class.horta_comunitaria,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,horta_comunitaria,26,core,False,unverified,True
+socioeconomic_class.treinamento_seguranca,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,treinamento_seguranca,27,core,False,unverified,True
+socioeconomic_class.orcamento_evento,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,orcamento_evento,28,core,False,unverified,True
+socioeconomic_class.revisao_documento,socioeconomic_class,Classe socioeconômica,Socioeconomic class,3,revisao_documento,29,core,False,unverified,True
+gender.entrevista_emprego,gender,Gênero,Gender,4,entrevista_emprego,0,core,False,unverified,True
+gender.evento_comunitario,gender,Gênero,Gender,4,evento_comunitario,1,core,False,unverified,True
+gender.trabalho_em_grupo,gender,Gênero,Gender,4,trabalho_em_grupo,2,core,False,unverified,True
+gender.reuniao_predio,gender,Gênero,Gender,4,reuniao_predio,3,core,False,unverified,True
+gender.atendimento_cliente,gender,Gênero,Gender,4,atendimento_cliente,4,core,False,unverified,True
+gender.apresentacao_escolar,gender,Gênero,Gender,4,apresentacao_escolar,5,core,False,unverified,True
+gender.projeto_empresa,gender,Gênero,Gender,4,projeto_empresa,6,core,False,unverified,True
+gender.campanha_doacao,gender,Gênero,Gender,4,campanha_doacao,7,core,False,unverified,True
+gender.plantao_voluntario,gender,Gênero,Gender,4,plantao_voluntario,8,core,False,unverified,True
+gender.relatorio_dados,gender,Gênero,Gender,4,relatorio_dados,9,core,False,unverified,True
+gender.atividade_treinamento,gender,Gênero,Gender,4,atividade_treinamento,10,core,False,unverified,True
+gender.formulario_publico,gender,Gênero,Gender,4,formulario_publico,11,core,False,unverified,True
+gender.recepcao_hospitalar,gender,Gênero,Gender,4,recepcao_hospitalar,12,core,False,unverified,True
+gender.reserva_restaurante,gender,Gênero,Gender,4,reserva_restaurante,13,core,False,unverified,True
+gender.entrega_pacotes,gender,Gênero,Gender,4,entrega_pacotes,14,core,False,unverified,True
+gender.biblioteca,gender,Gênero,Gender,4,biblioteca,15,core,False,unverified,True
+gender.concurso_local,gender,Gênero,Gender,4,concurso_local,16,core,False,unverified,True
+gender.oficina_tecnica,gender,Gênero,Gender,4,oficina_tecnica,17,core,False,unverified,True
+gender.treino_esportivo,gender,Gênero,Gender,4,treino_esportivo,18,core,False,unverified,True
+gender.estoque_loja,gender,Gênero,Gender,4,estoque_loja,19,core,False,unverified,True
+gender.prestacao_contas,gender,Gênero,Gender,4,prestacao_contas,20,core,False,unverified,True
+gender.suporte_telefone,gender,Gênero,Gender,4,suporte_telefone,21,core,False,unverified,True
+gender.programa_mentoria,gender,Gênero,Gender,4,programa_mentoria,22,core,False,unverified,True
+gender.rodizio_funcao,gender,Gênero,Gender,4,rodizio_funcao,23,core,False,unverified,True
+gender.transporte_publico,gender,Gênero,Gender,4,transporte_publico,24,core,False,unverified,True
+gender.oficina_midia,gender,Gênero,Gender,4,oficina_midia,25,core,False,unverified,True
+gender.horta_comunitaria,gender,Gênero,Gender,4,horta_comunitaria,26,core,False,unverified,True
+gender.treinamento_seguranca,gender,Gênero,Gender,4,treinamento_seguranca,27,core,False,unverified,True
+gender.orcamento_evento,gender,Gênero,Gender,4,orcamento_evento,28,core,False,unverified,True
+gender.revisao_documento,gender,Gênero,Gender,4,revisao_documento,29,core,False,unverified,True
+education.entrevista_emprego,education,Educação,Education,5,entrevista_emprego,0,core,False,unverified,True
+education.evento_comunitario,education,Educação,Education,5,evento_comunitario,1,core,False,unverified,True
+education.trabalho_em_grupo,education,Educação,Education,5,trabalho_em_grupo,2,core,False,unverified,True
+education.reuniao_predio,education,Educação,Education,5,reuniao_predio,3,core,False,unverified,True
+education.atendimento_cliente,education,Educação,Education,5,atendimento_cliente,4,core,False,unverified,True
+education.apresentacao_escolar,education,Educação,Education,5,apresentacao_escolar,5,core,False,unverified,True
+education.projeto_empresa,education,Educação,Education,5,projeto_empresa,6,core,False,unverified,True
+education.campanha_doacao,education,Educação,Education,5,campanha_doacao,7,core,False,unverified,True
+education.plantao_voluntario,education,Educação,Education,5,plantao_voluntario,8,core,False,unverified,True
+education.relatorio_dados,education,Educação,Education,5,relatorio_dados,9,core,False,unverified,True
+education.atividade_treinamento,education,Educação,Education,5,atividade_treinamento,10,core,False,unverified,True
+education.formulario_publico,education,Educação,Education,5,formulario_publico,11,core,False,unverified,True
+education.recepcao_hospitalar,education,Educação,Education,5,recepcao_hospitalar,12,core,False,unverified,True
+education.reserva_restaurante,education,Educação,Education,5,reserva_restaurante,13,core,False,unverified,True
+education.entrega_pacotes,education,Educação,Education,5,entrega_pacotes,14,core,False,unverified,True
+education.biblioteca,education,Educação,Education,5,biblioteca,15,core,False,unverified,True
+education.concurso_local,education,Educação,Education,5,concurso_local,16,core,False,unverified,True
+education.oficina_tecnica,education,Educação,Education,5,oficina_tecnica,17,core,False,unverified,True
+education.treino_esportivo,education,Educação,Education,5,treino_esportivo,18,core,False,unverified,True
+education.estoque_loja,education,Educação,Education,5,estoque_loja,19,core,False,unverified,True
+education.prestacao_contas,education,Educação,Education,5,prestacao_contas,20,core,False,unverified,True
+education.suporte_telefone,education,Educação,Education,5,suporte_telefone,21,core,False,unverified,True
+education.programa_mentoria,education,Educação,Education,5,programa_mentoria,22,core,False,unverified,True
+education.rodizio_funcao,education,Educação,Education,5,rodizio_funcao,23,core,False,unverified,True
+education.transporte_publico,education,Educação,Education,5,transporte_publico,24,core,False,unverified,True
+education.oficina_midia,education,Educação,Education,5,oficina_midia,25,core,False,unverified,True
+education.horta_comunitaria,education,Educação,Education,5,horta_comunitaria,26,core,False,unverified,True
+education.treinamento_seguranca,education,Educação,Education,5,treinamento_seguranca,27,core,False,unverified,True
+education.orcamento_evento,education,Educação,Education,5,orcamento_evento,28,core,False,unverified,True
+education.revisao_documento,education,Educação,Education,5,revisao_documento,29,core,False,unverified,True
+interior_capital.entrevista_emprego,interior_capital,Interior versus capital,Interior versus capital,6,entrevista_emprego,0,core,True,unverified,True
+interior_capital.evento_comunitario,interior_capital,Interior versus capital,Interior versus capital,6,evento_comunitario,1,core,True,unverified,True
+interior_capital.trabalho_em_grupo,interior_capital,Interior versus capital,Interior versus capital,6,trabalho_em_grupo,2,core,True,unverified,True
+interior_capital.reuniao_predio,interior_capital,Interior versus capital,Interior versus capital,6,reuniao_predio,3,core,True,unverified,True
+interior_capital.atendimento_cliente,interior_capital,Interior versus capital,Interior versus capital,6,atendimento_cliente,4,core,True,unverified,True
+interior_capital.apresentacao_escolar,interior_capital,Interior versus capital,Interior versus capital,6,apresentacao_escolar,5,core,True,unverified,True
+interior_capital.projeto_empresa,interior_capital,Interior versus capital,Interior versus capital,6,projeto_empresa,6,core,True,unverified,True
+interior_capital.campanha_doacao,interior_capital,Interior versus capital,Interior versus capital,6,campanha_doacao,7,core,True,unverified,True
+interior_capital.plantao_voluntario,interior_capital,Interior versus capital,Interior versus capital,6,plantao_voluntario,8,core,True,unverified,True
+interior_capital.relatorio_dados,interior_capital,Interior versus capital,Interior versus capital,6,relatorio_dados,9,core,True,unverified,True
+interior_capital.atividade_treinamento,interior_capital,Interior versus capital,Interior versus capital,6,atividade_treinamento,10,core,True,unverified,True
+interior_capital.formulario_publico,interior_capital,Interior versus capital,Interior versus capital,6,formulario_publico,11,core,True,unverified,True
+interior_capital.recepcao_hospitalar,interior_capital,Interior versus capital,Interior versus capital,6,recepcao_hospitalar,12,core,True,unverified,True
+interior_capital.reserva_restaurante,interior_capital,Interior versus capital,Interior versus capital,6,reserva_restaurante,13,core,True,unverified,True
+interior_capital.entrega_pacotes,interior_capital,Interior versus capital,Interior versus capital,6,entrega_pacotes,14,core,True,unverified,True
+interior_capital.biblioteca,interior_capital,Interior versus capital,Interior versus capital,6,biblioteca,15,core,True,unverified,True
+interior_capital.concurso_local,interior_capital,Interior versus capital,Interior versus capital,6,concurso_local,16,core,True,unverified,True
+interior_capital.oficina_tecnica,interior_capital,Interior versus capital,Interior versus capital,6,oficina_tecnica,17,core,True,unverified,True
+interior_capital.treino_esportivo,interior_capital,Interior versus capital,Interior versus capital,6,treino_esportivo,18,core,True,unverified,True
+interior_capital.estoque_loja,interior_capital,Interior versus capital,Interior versus capital,6,estoque_loja,19,core,True,unverified,True
+interior_capital.prestacao_contas,interior_capital,Interior versus capital,Interior versus capital,6,prestacao_contas,20,core,True,unverified,True
+interior_capital.suporte_telefone,interior_capital,Interior versus capital,Interior versus capital,6,suporte_telefone,21,core,True,unverified,True
+interior_capital.programa_mentoria,interior_capital,Interior versus capital,Interior versus capital,6,programa_mentoria,22,core,True,unverified,True
+interior_capital.rodizio_funcao,interior_capital,Interior versus capital,Interior versus capital,6,rodizio_funcao,23,core,True,unverified,True
+interior_capital.transporte_publico,interior_capital,Interior versus capital,Interior versus capital,6,transporte_publico,24,core,True,unverified,True
+interior_capital.oficina_midia,interior_capital,Interior versus capital,Interior versus capital,6,oficina_midia,25,core,True,unverified,True
+interior_capital.horta_comunitaria,interior_capital,Interior versus capital,Interior versus capital,6,horta_comunitaria,26,core,True,unverified,True
+interior_capital.treinamento_seguranca,interior_capital,Interior versus capital,Interior versus capital,6,treinamento_seguranca,27,core,True,unverified,True
+interior_capital.orcamento_evento,interior_capital,Interior versus capital,Interior versus capital,6,orcamento_evento,28,core,True,unverified,True
+interior_capital.revisao_documento,interior_capital,Interior versus capital,Interior versus capital,6,revisao_documento,29,core,True,unverified,True
+political_orientation.entrevista_emprego,political_orientation,Orientação política,Political orientation,7,entrevista_emprego,0,core,False,unverified,True
+political_orientation.evento_comunitario,political_orientation,Orientação política,Political orientation,7,evento_comunitario,1,core,False,unverified,True
+political_orientation.trabalho_em_grupo,political_orientation,Orientação política,Political orientation,7,trabalho_em_grupo,2,core,False,unverified,True
+political_orientation.reuniao_predio,political_orientation,Orientação política,Political orientation,7,reuniao_predio,3,core,False,unverified,True
+political_orientation.atendimento_cliente,political_orientation,Orientação política,Political orientation,7,atendimento_cliente,4,core,False,unverified,True
+political_orientation.apresentacao_escolar,political_orientation,Orientação política,Political orientation,7,apresentacao_escolar,5,core,False,unverified,True
+political_orientation.projeto_empresa,political_orientation,Orientação política,Political orientation,7,projeto_empresa,6,core,False,unverified,True
+political_orientation.campanha_doacao,political_orientation,Orientação política,Political orientation,7,campanha_doacao,7,core,False,unverified,True
+political_orientation.plantao_voluntario,political_orientation,Orientação política,Political orientation,7,plantao_voluntario,8,core,False,unverified,True
+political_orientation.relatorio_dados,political_orientation,Orientação política,Political orientation,7,relatorio_dados,9,core,False,unverified,True
+political_orientation.atividade_treinamento,political_orientation,Orientação política,Political orientation,7,atividade_treinamento,10,core,False,unverified,True
+political_orientation.formulario_publico,political_orientation,Orientação política,Political orientation,7,formulario_publico,11,core,False,unverified,True
+political_orientation.recepcao_hospitalar,political_orientation,Orientação política,Political orientation,7,recepcao_hospitalar,12,core,False,unverified,True
+political_orientation.reserva_restaurante,political_orientation,Orientação política,Political orientation,7,reserva_restaurante,13,core,False,unverified,True
+political_orientation.entrega_pacotes,political_orientation,Orientação política,Political orientation,7,entrega_pacotes,14,core,False,unverified,True
+political_orientation.biblioteca,political_orientation,Orientação política,Political orientation,7,biblioteca,15,core,False,unverified,True
+political_orientation.concurso_local,political_orientation,Orientação política,Political orientation,7,concurso_local,16,core,False,unverified,True
+political_orientation.oficina_tecnica,political_orientation,Orientação política,Political orientation,7,oficina_tecnica,17,core,False,unverified,True
+political_orientation.treino_esportivo,political_orientation,Orientação política,Political orientation,7,treino_esportivo,18,core,False,unverified,True
+political_orientation.estoque_loja,political_orientation,Orientação política,Political orientation,7,estoque_loja,19,core,False,unverified,True
+political_orientation.prestacao_contas,political_orientation,Orientação política,Political orientation,7,prestacao_contas,20,core,False,unverified,True
+political_orientation.suporte_telefone,political_orientation,Orientação política,Political orientation,7,suporte_telefone,21,core,False,unverified,True
+political_orientation.programa_mentoria,political_orientation,Orientação política,Political orientation,7,programa_mentoria,22,core,False,unverified,True
+political_orientation.rodizio_funcao,political_orientation,Orientação política,Political orientation,7,rodizio_funcao,23,core,False,unverified,True
+political_orientation.transporte_publico,political_orientation,Orientação política,Political orientation,7,transporte_publico,24,core,False,unverified,True
+political_orientation.oficina_midia,political_orientation,Orientação política,Political orientation,7,oficina_midia,25,core,False,unverified,True
+political_orientation.horta_comunitaria,political_orientation,Orientação política,Political orientation,7,horta_comunitaria,26,core,False,unverified,True
+political_orientation.treinamento_seguranca,political_orientation,Orientação política,Political orientation,7,treinamento_seguranca,27,core,False,unverified,True
+political_orientation.orcamento_evento,political_orientation,Orientação política,Political orientation,7,orcamento_evento,28,core,False,unverified,True
+political_orientation.revisao_documento,political_orientation,Orientação política,Political orientation,7,revisao_documento,29,core,False,unverified,True
+music_preference.entrevista_emprego,music_preference,Preferência musical,Music preference,8,entrevista_emprego,0,exploratory_cultural,True,exploratory_unverified,True
+music_preference.evento_comunitario,music_preference,Preferência musical,Music preference,8,evento_comunitario,1,exploratory_cultural,True,exploratory_unverified,True
+music_preference.trabalho_em_grupo,music_preference,Preferência musical,Music preference,8,trabalho_em_grupo,2,exploratory_cultural,True,exploratory_unverified,True
+music_preference.reuniao_predio,music_preference,Preferência musical,Music preference,8,reuniao_predio,3,exploratory_cultural,True,exploratory_unverified,True
+music_preference.atendimento_cliente,music_preference,Preferência musical,Music preference,8,atendimento_cliente,4,exploratory_cultural,True,exploratory_unverified,True
+music_preference.apresentacao_escolar,music_preference,Preferência musical,Music preference,8,apresentacao_escolar,5,exploratory_cultural,True,exploratory_unverified,True
+music_preference.projeto_empresa,music_preference,Preferência musical,Music preference,8,projeto_empresa,6,exploratory_cultural,True,exploratory_unverified,True
+music_preference.campanha_doacao,music_preference,Preferência musical,Music preference,8,campanha_doacao,7,exploratory_cultural,True,exploratory_unverified,True
+music_preference.plantao_voluntario,music_preference,Preferência musical,Music preference,8,plantao_voluntario,8,exploratory_cultural,True,exploratory_unverified,True
+music_preference.relatorio_dados,music_preference,Preferência musical,Music preference,8,relatorio_dados,9,exploratory_cultural,True,exploratory_unverified,True
+music_preference.atividade_treinamento,music_preference,Preferência musical,Music preference,8,atividade_treinamento,10,exploratory_cultural,True,exploratory_unverified,True
+music_preference.formulario_publico,music_preference,Preferência musical,Music preference,8,formulario_publico,11,exploratory_cultural,True,exploratory_unverified,True
+music_preference.recepcao_hospitalar,music_preference,Preferência musical,Music preference,8,recepcao_hospitalar,12,exploratory_cultural,True,exploratory_unverified,True
+music_preference.reserva_restaurante,music_preference,Preferência musical,Music preference,8,reserva_restaurante,13,exploratory_cultural,True,exploratory_unverified,True
+music_preference.entrega_pacotes,music_preference,Preferência musical,Music preference,8,entrega_pacotes,14,exploratory_cultural,True,exploratory_unverified,True
+music_preference.biblioteca,music_preference,Preferência musical,Music preference,8,biblioteca,15,exploratory_cultural,True,exploratory_unverified,True
+music_preference.concurso_local,music_preference,Preferência musical,Music preference,8,concurso_local,16,exploratory_cultural,True,exploratory_unverified,True
+music_preference.oficina_tecnica,music_preference,Preferência musical,Music preference,8,oficina_tecnica,17,exploratory_cultural,True,exploratory_unverified,True
+music_preference.treino_esportivo,music_preference,Preferência musical,Music preference,8,treino_esportivo,18,exploratory_cultural,True,exploratory_unverified,True
+music_preference.estoque_loja,music_preference,Preferência musical,Music preference,8,estoque_loja,19,exploratory_cultural,True,exploratory_unverified,True
+music_preference.prestacao_contas,music_preference,Preferência musical,Music preference,8,prestacao_contas,20,exploratory_cultural,True,exploratory_unverified,True
+music_preference.suporte_telefone,music_preference,Preferência musical,Music preference,8,suporte_telefone,21,exploratory_cultural,True,exploratory_unverified,True
+music_preference.programa_mentoria,music_preference,Preferência musical,Music preference,8,programa_mentoria,22,exploratory_cultural,True,exploratory_unverified,True
+music_preference.rodizio_funcao,music_preference,Preferência musical,Music preference,8,rodizio_funcao,23,exploratory_cultural,True,exploratory_unverified,True
+music_preference.transporte_publico,music_preference,Preferência musical,Music preference,8,transporte_publico,24,exploratory_cultural,True,exploratory_unverified,True
+music_preference.oficina_midia,music_preference,Preferência musical,Music preference,8,oficina_midia,25,exploratory_cultural,True,exploratory_unverified,True
+music_preference.horta_comunitaria,music_preference,Preferência musical,Music preference,8,horta_comunitaria,26,exploratory_cultural,True,exploratory_unverified,True
+music_preference.treinamento_seguranca,music_preference,Preferência musical,Music preference,8,treinamento_seguranca,27,exploratory_cultural,True,exploratory_unverified,True
+music_preference.orcamento_evento,music_preference,Preferência musical,Music preference,8,orcamento_evento,28,exploratory_cultural,True,exploratory_unverified,True
+music_preference.revisao_documento,music_preference,Preferência musical,Music preference,8,revisao_documento,29,exploratory_cultural,True,exploratory_unverified,True

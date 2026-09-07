@@ -1,0 +1,14 @@
+{
+  "run_id": "20260904_203401_bilingual_openai_extended_gpt-4o",
+  "experiment": "bilingual_openai_extended",
+  "status": "completed",
+  "created_at": "2026-09-04T23:34:02.642949+00:00",
+  "expected_evaluations": 36720,
+  "completed_evaluations": 36720,
+  "started_at": "2026-09-04T23:34:02.994698+00:00",
+  "pid": 2195113,
+  "duration_seconds": 110.26160478591919,
+  "final_batch_size": 32,
+  "finished_at": "2026-09-04T23:35:53.256199+00:00",
+  "reports_generated": true
+}

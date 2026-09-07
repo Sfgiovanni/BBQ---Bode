@@ -1,0 +1,22 @@
+{
+  "adapter": "openai_replay",
+  "model_name": "gpt-4o",
+  "provider": "openai",
+  "prompt_style": "simple",
+  "scoring_method": "first_token_logprob_api_batch",
+  "top_logprobs": 20,
+  "temperature": 0.0,
+  "weights_are_remote": true,
+  "revision": null,
+  "revision_note": "A hosted model has no pinnable revision; reproducibility is bounded by the run date, unlike the BODE run's pinned commit SHA.",
+  "results_path": "work_openai/gpt-4o/scores.json",
+  "rows_served": 2,
+  "rows_missing": 2,
+  "live_fallbacks": [
+    "09e8cbd2f031",
+    "20a524d022ec"
+  ],
+  "batch": {},
+  "openai_sdk": "3.7.0",
+  "python": "3.13.12"
+}
