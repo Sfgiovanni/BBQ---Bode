@@ -1,0 +1,13 @@
+model,selected_content_pt,group1,group2,unknown
+bode-7b,group1,8694,1762,346
+bode-7b,group2,2236,4240,355
+bode-7b,unknown,204,152,371
+sabiazinho-4,group1,4450,0,77
+sabiazinho-4,group2,0,4324,46
+sabiazinho-4,unknown,239,318,8906
+sabia-4,group1,4519,0,15
+sabia-4,group2,0,4552,8
+sabia-4,unknown,57,35,9174
+gpt-4o,group1,4542,0,6
+gpt-4o,group2,0,4565,6
+gpt-4o,unknown,49,31,9161

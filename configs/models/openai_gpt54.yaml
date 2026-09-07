@@ -1,0 +1,14 @@
+# Modelo hospedado: sem SHA de revisao para fixar. Reprodutibilidade limitada
+# pela data do run -- registrado em model_metadata.json.
+# top_logprobs: 5 e o teto DESTE modelo (o gpt-4o aceita 20). Medido em 40
+# prompts reais: o primeiro token e a letra em 40/40, deterministico em 10/10,
+# mas so 1 das 3 letras cai no top-5 em 39/40. O argmax -- e portanto toda
+# metrica do BR-BBQ -- nao e afetado; as colunas logprob_* ficam esparsas.
+adapter: openai_replay
+model_name: gpt-5.4
+prompt_style: simple
+top_logprobs: 5
+api_key_env: OPENAI_API_KEY
+results_path: work_openai/gpt-5.4/scores.json
+dtype: null
+device_map: null

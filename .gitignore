@@ -65,6 +65,67 @@ results/runs/20260726_112145_bilingual_bode_extended_bode-7b-alpaca-pt-br-no-pef
 !results/runs/20260726_112145_bilingual_bode_extended_bode-7b-alpaca-pt-br-no-peft/figures/**
 !results/runs/20260726_112145_bilingual_bode_extended_bode-7b-alpaca-pt-br-no-peft/raw_predictions.parquet
 
+
+# Mesma politica das rodadas do BODE, agora para os modelos servidos por API
+# no catalogo estendido (51 pares). Sem CSVs linha a linha, parquets expandidos,
+# logs nem checkpoints.
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/
+results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/*
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/config_resolved.yaml
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/git_state.json
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/dataset_manifest.json
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/manifest.json
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/runtime.json
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/token_usage.json
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/base_templates.csv
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/EXECUTIVE_SUMMARY.md
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/REPORT.md
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/REPORT_BRAZIL_SPECIFIC.md
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/raw_predictions.parquet
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/metrics/
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/metrics/**
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/figures/
+!results/runs/20260904_120011_bilingual_sabia_extended_sabiazinho-4/figures/**
+
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/
+results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/*
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/config_resolved.yaml
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/git_state.json
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/dataset_manifest.json
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/manifest.json
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/runtime.json
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/token_usage.json
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/base_templates.csv
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/EXECUTIVE_SUMMARY.md
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/REPORT.md
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/REPORT_BRAZIL_SPECIFIC.md
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/raw_predictions.parquet
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/metrics/
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/metrics/**
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/figures/
+!results/runs/20260904_122525_bilingual_sabia_extended_sabia-4/figures/**
+
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/
+results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/*
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/config_resolved.yaml
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/git_state.json
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/dataset_manifest.json
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/manifest.json
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/runtime.json
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/token_usage.json
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/base_templates.csv
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/EXECUTIVE_SUMMARY.md
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/REPORT.md
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/REPORT_BRAZIL_SPECIFIC.md
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/raw_predictions.parquet
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/metrics/
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/metrics/**
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/figures/
+!results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/figures/**
+
+# Pacote consolidado do catalogo estendido, base para o paper.
+!results/extended_catalog/
+!results/extended_catalog/**
 # Large legacy row-level data remain local.
 results/legacy_portuguese/raw_predictions.csv
 results/legacy_portuguese/raw_predictions.parquet
@@ -85,3 +146,9 @@ reproduced/
 # Nao e credencial: e apenas a contabilidade de uso da rodada publicada.
 !results/runs/20260710_000126_bilingual_bode_bode-7b-alpaca-pt-br-no-peft/token_usage.json
 !results/runs/20260726_112145_bilingual_bode_extended_bode-7b-alpaca-pt-br-no-peft/token_usage.json
+
+# Reconstruido: a regra *token* acima escondia este ARQUIVO DE CODIGO
+!src/brbbq/scoring/tokens.py
+
+# Arquivos intermediarios dos lotes da OpenAI (entrada/saida por lote)
+work_openai/

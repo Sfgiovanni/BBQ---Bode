@@ -1,0 +1,26 @@
+{
+  "identical_design": true,
+  "identical_prompt_text": true,
+  "rows_per_model": {
+    "bode-7b": 36720,
+    "sabiazinho-4": 36720,
+    "sabia-4": 36720,
+    "gpt-4o": 36720
+  },
+  "design_sha256": "06d15747ca762aec79a738700c88db2023c5089f0b8adb1da49837eae890d3d1",
+  "prompt_text_sha256": "a9ca92e6717386fd84dc0923ae118d457cefe59d8481a097e88b25ab7790d717",
+  "design_columns": [
+    "example_id",
+    "logical_id",
+    "semantic_pair_id",
+    "semantic_block_id",
+    "language",
+    "category_id",
+    "context_type",
+    "question_type",
+    "correct_option",
+    "biased_option",
+    "unknown_position"
+  ],
+  "note": "Same example ids, conditions, rotations, correct/biased keys and surface text in all four runs. Differences in the metrics are therefore attributable to the models (and, for BODE only, to its different prompt template -- see README)."
+}

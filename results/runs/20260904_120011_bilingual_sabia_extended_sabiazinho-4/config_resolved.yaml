@@ -1,0 +1,46 @@
+experiment:
+  name: bilingual_sabia_extended
+  seed: 42
+  languages:
+  - pt
+  - en
+  categories: all
+  templates_per_category: 30
+  pairs_per_template: null
+  conditions_per_pair: 4
+  permutations: 3
+  expected_logical_per_language: 6120
+  expected_logical_total: 12240
+  expected_expanded_total: 36720
+model:
+  adapter: maritaca_api
+  model_name: sabiazinho-4
+  base_url: https://chat.maritaca.ai/api
+  api_key_env: MARITACA_API_KEY
+  prompt_style: simple
+  top_logprobs: 20
+  max_concurrency: 16
+  request_timeout: 60
+  max_attempts: 6
+  dtype: null
+  device_map: null
+  config_path: configs/models/sabia.yaml
+inference:
+  batch_size: 32
+  batch_candidates:
+  - 32
+  checkpoint_every: 100
+  audit_per_language: 50
+  max_new_tokens_audit: 8
+  scoring_method: first_token_logprob
+  do_sample: false
+  resume: true
+metrics:
+  bootstrap_samples: 1000
+  confidence_level: 0.95
+  cluster_key: semantic_pair_id
+paths:
+  categories: questions/categories_bilingual_extended.yaml
+  scenarios: questions/scenarios_bilingual.jsonl
+  results_root: results/runs
+config_path: /home/franco/BBQ/bode_repo/configs/experiments/bilingual_sabia_extended.yaml

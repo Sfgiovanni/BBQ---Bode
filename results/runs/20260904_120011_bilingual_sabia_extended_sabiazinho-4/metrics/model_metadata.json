@@ -1,0 +1,32 @@
+{
+  "adapter": "maritaca_api",
+  "model_name": "sabiazinho-4",
+  "base_url": "https://chat.maritaca.ai/api",
+  "prompt_style": "simple",
+  "scoring_method": "first_token_logprob_api",
+  "top_logprobs": 20,
+  "max_concurrency": 16,
+  "temperature": 0.0,
+  "max_tokens": 1,
+  "weights_are_remote": true,
+  "revision": null,
+  "revision_note": "A hosted model has no pinnable revision: Maritaca can change the weights behind 'sabiazinho-4' without notice. Reproducibility is bounded by the run date, unlike the BODE run's pinned commit SHA.",
+  "observed_letter_variants": {
+    "A": {
+      "A": 2
+    },
+    "B": {
+      "B": 2
+    },
+    "C": {
+      "C": 2,
+      "\tC": 2,
+      " C": 1
+    }
+  },
+  "rows_scored": 2,
+  "rows_with_missing_letter": 0,
+  "http_retries": 0,
+  "openai_sdk": "3.7.0",
+  "python": "3.13.12"
+}

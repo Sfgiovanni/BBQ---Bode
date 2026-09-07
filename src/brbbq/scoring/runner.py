@@ -12,7 +12,17 @@ from typing import Any, Dict, Optional, Set, Tuple
 
 import numpy as np
 import pandas as pd
-import torch
+try:  # adapters served over HTTP need no local tensor stack
+    import torch
+except ModuleNotFoundError:  # pragma: no cover - exercised only in API-only envs
+    torch = None
+
+def _cuda_available() -> bool:
+    return torch is not None and torch.cuda.is_available()
+
+def _empty_cache() -> None:
+    if _cuda_available():
+        torch.cuda.empty_cache()
 
 from brbbq.config import PROJECT_ROOT, dump_config, project_path
 from brbbq.dataset import build_dataset, load_catalogs, validate_dataset
@@ -197,7 +207,9 @@ def _save_progress(
 
 def _is_oom(error: BaseException) -> bool:
     message = str(error).lower()
-    return isinstance(error, torch.cuda.OutOfMemoryError) or "out of memory" in message
+    if torch is not None and isinstance(error, torch.cuda.OutOfMemoryError):
+        return True
+    return "out of memory" in message
 
 
 def run_inference(
@@ -283,8 +295,7 @@ def run_inference(
                         batch_size = max(1, batch_size // 2)
                         LOGGER.warning("OOM; reducing batch size to %d and retrying", batch_size)
                         gc.collect()
-                        if torch.cuda.is_available():
-                            torch.cuda.empty_cache()
+                        _empty_cache()
                         continue
                     raise
                 latency = (time.time() - before) / max(len(batch), 1)
@@ -372,7 +383,8 @@ def preflight(config: Dict[str, Any], adapter: Optional[BaseModelAdapter] = None
     # experiment: it can take days and often hangs during first convolution.
     # Report the hardware block before allocating the model so callers can
     # resume safely after restoring the CUDA driver.
-    if not torch.cuda.is_available() and config["model"].get("dtype") in ("float16", "bfloat16"):
+    local_adapter = torch is not None
+    if local_adapter and not _cuda_available() and config["model"].get("dtype") in ("float16", "bfloat16"):
         return {
             "scientific_run": False,
             "status": "blocked_hardware",
@@ -412,8 +424,7 @@ def preflight(config: Dict[str, Any], adapter: Optional[BaseModelAdapter] = None
                 raise
             tested.append({"batch_size": candidate, "status": "oom"})
             gc.collect()
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
+            _empty_cache()
     if selected is None:
         raise RuntimeError("No batch candidate passed preflight")
     estimate = per_example * int(config["experiment"]["expected_expanded_total"])

@@ -1,0 +1,6 @@
+{
+  "commit": "fe96299d89a67c55b36ce8e4c6185977f7862dac",
+  "branch": "main",
+  "status_short": "M .gitignore\n M src/brbbq/models/__init__.py\n M src/brbbq/scoring/runner.py\n?? configs/experiments/bilingual_openai_extended.yaml\n?? configs/experiments/bilingual_sabia_extended.yaml\n?? configs/models/openai_gpt4o.yaml\n?? configs/models/openai_gpt54.yaml\n?? configs/models/sabia.yaml\n?? scripts/openai_batch.py\n?? src/brbbq/models/maritaca.py\n?? src/brbbq/models/openai_replay.py\n?? src/brbbq/scoring/tokens.py\n?? work_openai/",
+  "origin": "https://github.com/Sfgiovanni/BBQ---Bode.git"
+}
