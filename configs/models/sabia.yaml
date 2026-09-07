@@ -1,0 +1,14 @@
+# Modelo hospedado: nao existe SHA de revisao para fixar, ao contrario do
+# bode.yaml. A reprodutibilidade fica limitada pela data do run -- a Maritaca
+# pode trocar os pesos por tras do nome sem aviso. Registrado em model_metadata.json.
+adapter: maritaca_api
+model_name: sabiazinho-4
+base_url: https://chat.maritaca.ai/api
+api_key_env: MARITACA_API_KEY     # a chave nunca entra no arquivo
+prompt_style: simple              # instrucao/corpo identicos aos do Bode, sem o involucro Alpaca
+top_logprobs: 20                  # teto da API
+max_concurrency: 16
+request_timeout: 60
+max_attempts: 6
+dtype: null                       # nao se aplica: nao ha pesos locais
+device_map: null
