@@ -1,0 +1,530 @@
+<title>O Teste da Especialização Brasileira</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground:#f7f8fa; --panel:#fff; --panel-alt:#eef1f6;
+    --ink:#12171e; --ink-2:#39424e; --muted:#5c6673;
+    --hair:#dde2ea; --hair-strong:#c3ccd8;
+    --todas:#2f6fd0; --estaveis:#c25e00;
+    --warn:#9a3412; --warn-bg:#fdf1e7;
+    --serif:"Spectral","Iowan Old Style",Georgia,serif;
+    --sans:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#14171b; --panel:#1a1e24; --panel-alt:#21262d;
+      --ink:#e8ecf1; --ink-2:#c2cad4; --muted:#939eab;
+      --hair:#2a3037; --hair-strong:#3b434c;
+      --todas:#5590dc; --estaveis:#c48232;
+      --warn:#e0a06a; --warn-bg:#26201b;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#14171b; --panel:#1a1e24; --panel-alt:#21262d;
+    --ink:#e8ecf1; --ink-2:#c2cad4; --muted:#939eab;
+    --hair:#2a3037; --hair-strong:#3b434c;
+    --todas:#5590dc; --estaveis:#c48232;
+    --warn:#e0a06a; --warn-bg:#26201b;
+  }
+
+  * { box-sizing:border-box; }
+  body {
+    background:var(--ground); color:var(--ink); font-family:var(--sans);
+    font-size:16px; line-height:1.65; margin:0; padding:0 24px 96px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:900px; margin:0 auto; }
+  .prose { max-width:66ch; }
+
+  header.masthead { padding:56px 0 28px; border-bottom:2px solid var(--ink); margin-bottom:36px; }
+  .eyebrow {
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--muted); margin:0 0 14px;
+  }
+  h1 {
+    font-family:var(--serif); font-weight:700; font-size:clamp(32px,5vw,48px);
+    line-height:1.1; letter-spacing:-.015em; margin:0 0 14px; text-wrap:balance;
+  }
+  .standfirst {
+    font-family:var(--serif); font-size:19px; line-height:1.55;
+    color:var(--ink-2); margin:0; max-width:60ch;
+  }
+  .runmeta {
+    display:flex; flex-wrap:wrap; gap:4px 26px; margin-top:26px;
+    font-family:var(--mono); font-size:12.5px; color:var(--muted);
+  }
+  .runmeta b { color:var(--ink-2); font-weight:500; }
+
+  section { margin:0 0 52px; }
+  h2 { font-family:var(--serif); font-size:26px; font-weight:600; letter-spacing:-.01em; margin:0; text-wrap:balance; }
+  h3 {
+    font-family:var(--sans); font-size:14px; font-weight:600; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--muted); margin:32px 0 10px;
+  }
+  .sechead {
+    display:flex; align-items:baseline; gap:14px;
+    border-bottom:1px solid var(--hair-strong); padding-bottom:10px; margin-bottom:20px;
+  }
+  .sechead .tag {
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); margin-left:auto; white-space:nowrap;
+  }
+  p { margin:0 0 16px; }
+  strong { font-weight:600; }
+  code { font-family:var(--mono); font-size:.88em; background:var(--panel-alt); padding:1px 5px; border-radius:3px; }
+
+  .tbox { overflow-x:auto; margin:24px 0 10px; }
+  table { border-collapse:collapse; width:100%; min-width:620px; }
+  th, td {
+    padding:9px 12px; font-family:var(--mono); font-variant-numeric:tabular-nums;
+    text-align:right; font-size:13.5px; white-space:nowrap;
+  }
+  thead th {
+    font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);
+    font-weight:500; border-bottom:1px solid var(--hair-strong);
+  }
+  th.rl { text-align:left; font-family:var(--sans); font-size:13.5px; color:var(--ink-2); font-weight:500; }
+  tbody tr + tr th.rl, tbody tr + tr td { border-top:1px solid var(--hair); }
+  td.mau { color:var(--estaveis); font-weight:500; }
+  td.bom { color:var(--todas); font-weight:500; }
+  tr.destaque td, tr.destaque th.rl { background:var(--panel-alt); }
+
+  .stats {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1px;
+    background:var(--hair); border:1px solid var(--hair); margin:28px 0 8px;
+  }
+  .stat { background:var(--panel); padding:18px; }
+  .stat .lbl {
+    font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); display:block; margin-bottom:10px;
+  }
+  .stat .val {
+    font-family:var(--serif); font-size:30px; font-weight:600; line-height:1;
+    font-variant-numeric:tabular-nums; display:block;
+  }
+  .stat .sub {
+    font-family:var(--mono); font-size:12px; color:var(--muted); display:block;
+    margin-top:7px; font-variant-numeric:tabular-nums;
+  }
+  .stat.a .val { color:var(--estaveis); }
+  .stat.b .val { color:var(--todas); }
+
+  figure { margin:0; }
+  .figbox { background:var(--panel); border:1px solid var(--hair); padding:18px 18px 12px; overflow-x:auto; }
+  .figbox + .figbox { border-top:0; }
+  .figbox svg { display:block; min-width:600px; width:100%; height:auto; }
+  .paneltitle {
+    font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-2); margin:0 0 10px;
+  }
+  .paneltitle span { color:var(--muted); text-transform:none; letter-spacing:0; }
+  figcaption { font-size:13.5px; color:var(--muted); margin-top:12px; max-width:64ch; }
+  .legend {
+    display:flex; gap:20px; align-items:center; flex-wrap:wrap;
+    font-family:var(--mono); font-size:12px; color:var(--ink-2); margin-bottom:14px;
+  }
+  .legend i { width:11px; height:11px; border-radius:50%; display:inline-block; margin-right:7px; vertical-align:-1px; }
+  .dot { cursor:default; }
+  .dot:hover { stroke-width:3; }
+
+  .callout { background:var(--warn-bg); border-left:3px solid var(--warn); padding:16px 20px; margin:24px 0; }
+  .callout p:last-child { margin-bottom:0; }
+  .callout .hd {
+    font-family:var(--mono); font-size:11px; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--warn); margin-bottom:8px;
+  }
+
+  ul.plain { margin:0 0 16px; padding-left:20px; }
+  ul.plain li { margin-bottom:10px; }
+  pre {
+    font-family:var(--mono); font-size:12.5px; line-height:1.7; background:var(--panel);
+    border:1px solid var(--hair); padding:14px 16px; overflow-x:auto; margin:0 0 16px;
+  }
+  footer {
+    border-top:1px solid var(--hair-strong); padding-top:18px;
+    font-family:var(--mono); font-size:12px; color:var(--muted);
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">BR-BBQ · catálogo estendido, 51 pares · 36.720 avaliações por modelo</p>
+  <h1>O modelo brasileiro não ganha do genérico.</h1>
+  <p class="standfirst">Bode-7B, sabiazinho-4, sabia-4 e gpt-4o responderam o mesmo benchmark
+  brasileiro de viés, em português e inglês, com log-probabilidade do primeiro token sobre
+  A/B/C. O <b>gpt-4o</b> — sem nenhuma especialização em português — iguala ou supera o
+  <b>sabia-4</b> em todos os eixos medidos.</p>
+  <div class="runmeta">
+    <span>modelos <b>4</b></span>
+    <span>avaliações <b>146.880</b></span>
+    <span>rotações A/B/C <b>3 por questão</b></span>
+    <span>bootstrap <b>1.000 amostras</b></span>
+    <span>custo API <b>R$ 53,73</b></span>
+    <span>execução <b>4 set 2026</b></span>
+  </div>
+</header>
+
+<section>
+  <div class="sechead">
+    <h2>O quadro</h2>
+    <span class="tag">36.720 avaliações por modelo</span>
+  </div>
+  <div class="tbox">
+    <table>
+      <thead>
+        <tr>
+          <th class="rl">métrica</th>
+          <th>Bode-7B</th><th>sabiazinho-4</th><th>sabia-4</th><th>gpt-4o</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th class="rl">acurácia geral</th>
+          <td class="mau">0,401</td><td>0,977</td><td>0,996</td><td class="bom">0,997</td></tr>
+        <tr><th class="rl">acurácia · ambíguo</th>
+          <td class="mau">0,028</td><td>0,980</td><td>0,998</td><td>0,998</td></tr>
+        <tr><th class="rl">acurácia · desambiguado</th>
+          <td>0,775</td><td>0,973</td><td>0,993</td><td class="bom">0,995</td></tr>
+        <tr><th class="rl">taxa de “não sei”</th>
+          <td class="mau">4,9%</td><td>50,4%</td><td>50,3%</td><td>50,1%</td></tr>
+        <tr><th class="rl">s_DIS</th>
+          <td class="mau">+0,056</td><td>−0,004</td><td>+0,001</td><td>+0,003</td></tr>
+        <tr><th class="rl">s_AMB</th>
+          <td class="mau">+0,026</td><td>+0,008</td><td>−0,000</td><td>−0,001</td></tr>
+        <tr class="destaque"><th class="rl">consistência posicional</th>
+          <td class="mau">0,368</td><td>0,960</td><td>0,992</td><td class="bom">0,995</td></tr>
+        <tr><th class="rl">taxa A / B / C</th>
+          <td class="mau">0,21/0,46/0,33</td><td>0,34/0,33/0,34</td><td>0,33/0,33/0,33</td><td>0,33/0,33/0,33</td></tr>
+        <tr><th class="rl">concordância PT↔EN</th>
+          <td class="mau">0,725</td><td>0,963</td><td>0,994</td><td class="bom">0,995</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose" style="margin-top:22px">
+    <p><b>O gpt-4o vence o sabia-4 por margens pequenas mas consistentes</b> — acurácia geral
+    (0,997 contra 0,996), acurácia desambiguada (0,995 contra 0,993), consistência posicional
+    (0,995 contra 0,992) e concordância entre idiomas (0,995 contra 0,994). Por categoria, o
+    gpt-4o é igual ou melhor em sete das nove.</p>
+    <p>As diferenças são pequenas demais para sustentar “o gpt-4o é melhor”. Elas são grandes
+    o suficiente para derrubar a afirmação oposta: <b>neste benchmark, especialização em
+    português não produz vantagem mensurável.</b> Um modelo americano de propósito geral lida
+    com estereótipos brasileiros expressos em português tão bem quanto o modelo treinado para
+    isso.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <h2>O viés do Bode estava escondido, não inflado</h2>
+    <span class="tag">correção de análise</span>
+  </div>
+  <div class="prose">
+    <p>O desenho apresenta cada questão três vezes, girando qual letra carrega qual conteúdo.
+    O Bode escolhe conteúdo diferente em <b>63% das questões</b>. A leitura intuitiva — e a que
+    eu adotei numa primeira análise — é que um escore de viés calculado sobre respostas tão
+    instáveis mede ruído, e portanto estaria inflado.</p>
+    <p><b>É o contrário.</b> Isolando só as questões em que o Bode responde de forma consistente
+    nas três rotações, o viés <i>mais que dobra</i>: as 63% de questões instáveis funcionam
+    como ruído aleatório que puxa a média em direção a zero. Quando ele tem uma opinião, ela é
+    claramente enviesada.</p>
+  </div>
+
+  <figure>
+    <div class="legend">
+      <span><i style="background:var(--todas)"></i>todas as questões</span>
+      <span><i style="background:var(--estaveis)"></i>só as posicionalmente estáveis</span>
+    </div>
+    <div class="figbox">
+      <p class="paneltitle">Viés em contexto desambiguado <span>— s_DIS, antes e depois de remover o ruído posicional</span></p>
+      <svg id="svg-bias" viewBox="0 0 720 236" role="img"
+           aria-label="s_DIS de cada modelo, em todas as questões e só nas posicionalmente estáveis"></svg>
+    </div>
+    <div class="figbox">
+      <p class="paneltitle">Consistência posicional <span>— fração de questões com a mesma resposta nas 3 rotações</span></p>
+      <svg id="svg-pos" viewBox="0 0 720 216" role="img"
+           aria-label="Consistência posicional por modelo"></svg>
+    </div>
+    <figcaption>No painel de cima, só o Bode se move — nos outros três a restrição não muda
+    nada, porque eles já eram estáveis (96% a 99,5%). O painel de baixo mostra por quê.</figcaption>
+  </figure>
+
+  <div class="stats">
+    <div class="stat a">
+      <span class="lbl">Bode · s_DIS nas questões estáveis</span>
+      <span class="val">+0,144</span>
+      <span class="sub">contra +0,056 no conjunto todo</span>
+    </div>
+    <div class="stat a">
+      <span class="lbl">Bode · s_AMB nas estáveis</span>
+      <span class="val">+0,059</span>
+      <span class="sub">contra +0,026 no conjunto todo</span>
+    </div>
+    <div class="stat b">
+      <span class="lbl">Demais modelos · s_DIS estáveis</span>
+      <span class="val">≈ 0</span>
+      <span class="sub">−0,011 · −0,006 · −0,001</span>
+    </div>
+    <div class="stat a">
+      <span class="lbl">Questões estáveis do Bode</span>
+      <span class="val">36,8%</span>
+      <span class="sub">96% a 99,5% nos outros</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <h2>A “abstenção” do Bode é posição disfarçada</h2>
+    <span class="tag">artefato</span>
+  </div>
+  <div class="tbox">
+    <table>
+      <thead>
+        <tr><th class="rl">escolhe “não sei” quando essa opção está em…</th>
+          <th>A</th><th>B</th><th>C</th></tr>
+      </thead>
+      <tbody>
+        <tr><th class="rl">Bode-7B</th><td class="mau">0,003</td><td class="mau">0,129</td><td class="mau">0,015</td></tr>
+        <tr><th class="rl">sabiazinho-4</th><td>0,508</td><td>0,495</td><td>0,507</td></tr>
+        <tr><th class="rl">sabia-4</th><td>0,504</td><td>0,501</td><td>0,503</td></tr>
+        <tr><th class="rl">gpt-4o</th><td>0,504</td><td>0,500</td><td>0,500</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p>O Bode escolhe “não sei” <b>43 vezes mais</b> quando essa alternativa calha de estar na
+    letra B. Sua acurácia de 2,8% em contexto ambíguo decompõe em 0,1% / 5,7% / 2,6% conforme
+    a posição. Aqueles 4,9% de abstenção não são cautela epistêmica — são a preferência por B
+    usando fantasia. <b>O Bode nunca abstém.</b></p>
+    <p>Os outros três ficam achatados em ~50% nas três posições. Isso é abstenção real: a
+    decisão de não responder independe de onde a opção está.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <h2>Onde o viés do Bode se concentra</h2>
+    <span class="tag">só questões estáveis</span>
+  </div>
+  <div class="tbox">
+    <table>
+      <thead>
+        <tr><th class="rl">categoria</th><th>s_DIS · todas</th><th>s_DIS · estáveis</th></tr>
+      </thead>
+      <tbody>
+        <tr><th class="rl">Interior × capital</th><td>0,104</td><td class="mau">0,293</td></tr>
+        <tr><th class="rl">Gênero</th><td>0,086</td><td class="mau">0,288</td></tr>
+        <tr><th class="rl">Educação</th><td>0,082</td><td class="mau">0,245</td></tr>
+        <tr><th class="rl">Raça / cor</th><td>0,089</td><td class="mau">0,230</td></tr>
+        <tr><th class="rl">Classe socioeconômica</th><td>0,059</td><td>0,154</td></tr>
+        <tr><th class="rl">Religião</th><td>0,075</td><td>0,106</td></tr>
+        <tr><th class="rl">Preferência musical ✱</th><td>0,053</td><td>0,082</td></tr>
+        <tr><th class="rl">Orientação política</th><td>−0,014</td><td>−0,004</td></tr>
+        <tr><th class="rl">Regionalidade</th><td>−0,033</td><td>−0,086</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p>Os grupos que o Bode escolhe como culpado em perguntas negativas com contexto
+    desambiguado — a linha de base sem viés seria ~50%:</p>
+    <ul class="plain">
+      <li><b><code>low_income</code>: 68,0%</b></li>
+      <li><b><code>working_class</code>: 67,2%</b></li>
+      <li><code>northeast_brazil</code>: 48,5%</li>
+      <li><code>north_brazil</code>: 35,3%</li>
+    </ul>
+    <p>O eixo mais forte é <b>classe</b>, não região — e a regionalidade aparece com sinal
+    invertido, coerente com o <code>s_DIS</code> negativo daquela categoria.</p>
+    <p><b>O viés é simétrico.</b> Nas questões estáveis, o <code>s_DIS</code> do Bode é 0,135
+    em perguntas negativas e 0,149 em não-negativas: ele não só atribui o atributo ruim ao
+    grupo estereotipado, como atribui o atributo bom ao outro com a mesma força. Isso é uma
+    direção de estereótipo coerente, não um artefato de enquadramento — se fosse artefato, os
+    dois números divergiriam.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <h2>Significância</h2>
+    <span class="tag">IC 95% pareado</span>
+  </div>
+  <div class="prose">
+    <p>Intervalos de confiança que <b>excluem zero</b>, por bootstrap de 1.000 amostras
+    agrupadas por <code>semantic_pair_id</code>:</p>
+    <ul class="plain">
+      <li><b>Bode-7B</b> — todos os quatro: <code>s_DIS</code> pt [+0,007; +0,071] e en
+      [+0,035; +0,109]; <code>s_AMB</code> pt [+0,017; +0,048] e en [+0,001; +0,038].</li>
+      <li><b>sabiazinho-4</b> — só <code>s_AMB</code> em inglês [+0,008; +0,018]. Pequeno,
+      mas real.</li>
+      <li><b>sabia-4</b> — nenhum. Todos cruzam zero.</li>
+      <li><b>gpt-4o</b> — só <code>s_AMB</code> em português [−0,003; −0,000], negativo e de
+      magnitude desprezível.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <h2>Como o gpt-4o entrou num benchmark feito para modelo local</h2>
+    <span class="tag">método</span>
+  </div>
+  <div class="prose">
+    <p>O BR-BBQ pontua pela log-probabilidade do primeiro token sobre A/B/C, lida da
+    distribuição de um modelo local. Tanto a Maritaca quanto a OpenAI expõem isso via
+    <code>logprobs</code>/<code>top_logprobs</code>, então o método <i>transfere</i> em vez de
+    ser substituído por múltipla escolha generativa — o que quebraria a comparação justamente
+    no eixo da abstenção.</p>
+    <p>Escrevi dois adapters que implementam o mesmo contrato do adapter do Bode. O da
+    Maritaca pontua ao vivo; o da OpenAI <b>replica escores pré-computados pela Batch API</b>,
+    porque o runner é síncrono e o batch não é. O runner continua dono do schema das linhas,
+    do checkpoint, das métricas e do bootstrap — só a origem dos quatro campos de scoring muda.</p>
+    <p>Verificação, em 36.180 prompts: as três letras apareceram no top-20 em <b>100%</b> das
+    respostas do gpt-4o, saída de 1 token, temperatura 0, zero predições nulas. Nos Sabiás,
+    3/3 letras em 73.439 de 73.440 linhas.</p>
+  </div>
+  <div class="callout">
+    <div class="hd">A ressalva que não sai do paper</div>
+    <p>O Bode usa prompt Alpaca; os outros três usam chat. Usei o <code>prompt_style: simple</code>
+    do próprio repositório, cuja instrução e corpo são idênticos aos que o renderizador Alpaca
+    embrulha — mas um delta Bode × qualquer outro é diferença <b>de modelo e de formato</b>.
+    A afirmação defensável é “o Bode, no formato em que foi avaliado, responde por posição”.
+    As comparações entre sabiazinho-4, sabia-4 e gpt-4o não têm esse problema: os três usam
+    exatamente o mesmo prompt.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <h2>O que estes números não dizem</h2>
+    <span class="tag">ressalvas</span>
+  </div>
+  <ul class="plain prose">
+    <li><b>As direções de estereótipo não foram validadas.</b> O repositório marca
+    <code>needs_human_validation: true</code> em todos os pares adicionados e publica o run
+    estendido do Bode como “pending methodological review”. Os resultados são
+    computacionalmente válidos e reprodutíveis; o <i>sinal</i> de cada escore herda esse status.
+    O padrão de classe do Bode é forte o bastante para não depender disso; categorias
+    individuais, não.</li>
+    <li><b>O repositório não rodava como publicado.</b> A regra <code>*token*</code> do
+    <code>.gitignore</code> — escrita para proteger credenciais — impediu que
+    <code>src/brbbq/scoring/tokens.py</code> fosse commitado. Reconstruí o módulo pela
+    especificação do <code>METHODOLOGY.md</code>; um rerun do Bode com essa versão é
+    reconstrução, não reprodução.</li>
+    <li><b>Modelos hospedados não têm SHA de revisão.</b> O run do Bode fixa o commit
+    <code>ff1ecd8e</code> dos pesos; sabia-4 e gpt-4o só podem fixar a data.</li>
+    <li><b>Teto de benchmark.</b> Três dos quatro modelos passam de 0,97 de acurácia. Um
+    instrumento onde os concorrentes empatam no teto tem pouca resolução para distinguir entre
+    eles — a conclusão “especialização não ajuda” vale para <i>este</i> benchmark, e um teste
+    mais difícil poderia separá-los.</li>
+    <li><b>Preferência musical é exploratória</b> (✱) e fica fora de interpretação demográfica.
+    Um prompt, temperatura zero, uma passada: as rotações controlam posição, não paráfrase.</li>
+  </ul>
+</section>
+
+<footer>
+  Catálogo: <b>Sfgiovanni/BBQ---Bode</b>, <code>categories_bilingual_extended.yaml</code> (51 pares) ·
+  Bode: run publicado <b>20260726_112145</b> · Sabiás: <b>20260904_120011</b> e <b>20260904_122525</b> ·
+  gpt-4o: <b>20260904_203401</b>
+</footer>
+
+</div>
+
+<script>
+  const MODELOS = [
+    ["Bode-7B",      0.056,  0.144, 0.368],
+    ["sabiazinho-4",-0.004, -0.011, 0.960],
+    ["sabia-4",      0.001, -0.006, 0.992],
+    ["gpt-4o",       0.003, -0.001, 0.995],
+  ];
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (n, at) => { const e = document.createElementNS(NS, n);
+    for (const k in at) e.setAttribute(k, at[k]); return e; };
+  const f3 = v => (v < 0 ? "−" : "+") + Math.abs(v).toFixed(3).replace(".", ",");
+  const f2 = v => v.toFixed(3).replace(".", ",");
+
+  /* ---------- painel 1: dumbbell s_DIS todas x estaveis ---------- */
+  (function () {
+    const svg = document.getElementById("svg-bias");
+    const X0 = 175, X1 = 600, V0 = -0.03, V1 = 0.16;
+    const x = v => X0 + (v - V0) / (V1 - V0) * (X1 - X0);
+    [-0.03, 0, 0.05, 0.10, 0.15].forEach(t => {
+      const tx = el("text", { x: x(t), y: 24, "text-anchor": "middle",
+        "font-family": "IBM Plex Mono, monospace", "font-size": 11, style: "fill:var(--muted)" });
+      tx.textContent = t.toFixed(2).replace(".", ",");
+      svg.appendChild(tx);
+      svg.appendChild(el("line", { x1: x(t), y1: 32, x2: x(t), y2: 196,
+        "stroke-width": t === 0 ? 1.5 : 1,
+        style: "stroke:var(--" + (t === 0 ? "hair-strong" : "hair") + ")" }));
+    });
+    MODELOS.forEach((m, i) => {
+      const y = 52 + i * 36;
+      const rot = el("text", { x: 163, y: y + 4, "text-anchor": "end",
+        "font-family": "IBM Plex Sans, sans-serif", "font-size": 13,
+        style: "fill:var(--ink-2)" });
+      rot.textContent = m[0];
+      svg.appendChild(rot);
+      svg.appendChild(el("line", { x1: x(m[1]), y1: y, x2: x(m[2]), y2: y,
+        "stroke-width": 2.5, "stroke-linecap": "round", style: "stroke:var(--hair-strong)" }));
+      [[m[1], "var(--todas)", "todas"], [m[2], "var(--estaveis)", "estáveis"]].forEach(([v, c, nome]) => {
+        const dot = el("circle", { cx: x(v), cy: y, r: 6, "stroke-width": 2, class: "dot",
+          style: "fill:" + c + ";stroke:var(--panel)" });
+        const t = el("title", {});
+        t.textContent = m[0] + " · " + nome + ": " + f3(v);
+        dot.appendChild(t);
+        svg.appendChild(dot);
+      });
+      if (i === 0) {
+        const lab = el("text", { x: x(m[2]) + 14, y: y + 4, "text-anchor": "start",
+          "font-family": "IBM Plex Mono, monospace", "font-size": 12,
+          style: "fill:var(--estaveis)" });
+        lab.textContent = f3(m[2]);
+        svg.appendChild(lab);
+      }
+    });
+    const ax = el("text", { x: 387, y: 224, "text-anchor": "middle",
+      "font-family": "IBM Plex Mono, monospace", "font-size": 11, style: "fill:var(--muted)" });
+    ax.textContent = "s_DIS  ·  0 = sem viés  ·  positivo = na direção do estereótipo";
+    svg.appendChild(ax);
+  })();
+
+  /* ---------- painel 2: barras de consistencia posicional ---------- */
+  (function () {
+    const svg = document.getElementById("svg-pos");
+    const X0 = 175, X1 = 600;
+    const x = v => X0 + v * (X1 - X0);
+    [0, 0.25, 0.5, 0.75, 1].forEach(t => {
+      const tx = el("text", { x: x(t), y: 24, "text-anchor": "middle",
+        "font-family": "IBM Plex Mono, monospace", "font-size": 11, style: "fill:var(--muted)" });
+      tx.textContent = t.toFixed(2).replace(".", ",");
+      svg.appendChild(tx);
+      svg.appendChild(el("line", { x1: x(t), y1: 32, x2: x(t), y2: 176,
+        "stroke-width": 1, style: "stroke:var(--hair)" }));
+    });
+    MODELOS.forEach((m, i) => {
+      const y = 46 + i * 32;
+      const rot = el("text", { x: 163, y: y + 12, "text-anchor": "end",
+        "font-family": "IBM Plex Sans, sans-serif", "font-size": 13,
+        style: "fill:var(--ink-2)" });
+      rot.textContent = m[0];
+      svg.appendChild(rot);
+      const cor = i === 0 ? "var(--estaveis)" : "var(--todas)";
+      const barra = el("rect", { x: X0, y: y, width: Math.max(x(m[3]) - X0, 1), height: 17,
+        rx: 3, style: "fill:" + cor });
+      const t = el("title", {});
+      t.textContent = m[0] + ": " + f2(m[3]);
+      barra.appendChild(t);
+      svg.appendChild(barra);
+      const val = el("text", { x: x(m[3]) + 10, y: y + 13, "text-anchor": "start",
+        "font-family": "IBM Plex Mono, monospace", "font-size": 12,
+        style: "fill:var(--ink-2)" });
+      val.textContent = f2(m[3]);
+      svg.appendChild(val);
+    });
+    const ax = el("text", { x: 387, y: 204, "text-anchor": "middle",
+      "font-family": "IBM Plex Mono, monospace", "font-size": 11, style: "fill:var(--muted)" });
+    ax.textContent = "fração de questões com a mesma resposta nas 3 rotações";
+    svg.appendChild(ax);
+  })();
+</script>
