@@ -1,0 +1,6 @@
+{
+  "commit": "1156d8329d3f80d4136e2b98e8f1de4eda7d82b9",
+  "branch": "experiment/sabia-gpt4o-extended",
+  "status_short": "M src/brbbq/models/huggingface.py\n?? configs/experiments/bilingual_qwen_extended.yaml\n?? configs/models/qwen25_7b.yaml",
+  "origin": "https://github.com/Sfgiovanni/BBQ---Bode.git"
+}

@@ -3,6 +3,7 @@
   "identical_prompt_text": true,
   "rows_per_model": {
     "bode-7b": 36720,
+    "qwen2.5-7b": 36720,
     "sabiazinho-4": 36720,
     "sabia-4": 36720,
     "gpt-4o": 36720

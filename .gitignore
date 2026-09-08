@@ -123,6 +123,25 @@ results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/*
 !results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/figures/
 !results/runs/20260904_203401_bilingual_openai_extended_gpt-4o/figures/**
 
+
+# Controle local nao-brasileiro do mesmo porte (Qwen2.5-7B, 4-bit).
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/
+results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/*
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/config_resolved.yaml
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/git_state.json
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/dataset_manifest.json
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/manifest.json
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/runtime.json
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/token_usage.json
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/base_templates.csv
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/EXECUTIVE_SUMMARY.md
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/REPORT.md
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/REPORT_BRAZIL_SPECIFIC.md
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/raw_predictions.parquet
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/metrics/
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/metrics/**
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/figures/
+!results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/figures/**
 # Pacote consolidado do catalogo estendido, base para o paper.
 !results/extended_catalog/
 !results/extended_catalog/**

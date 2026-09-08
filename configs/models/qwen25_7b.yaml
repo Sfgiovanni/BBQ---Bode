@@ -1,0 +1,19 @@
+# Controle nao-brasileiro do mesmo porte do Bode (7B), com instruction tuning
+# moderno. Quantizado em 4-bit porque 7,62 B em fp16 sao 15,2 GB contra 11,3 GB
+# de VRAM da 2080 Ti -- ver a ressalva de comparabilidade no adapter.
+#
+# prompt_style: chat_template e o analogo fiel ao que os modelos por API
+# receberam (o provedor aplica o template do lado dele). Usar `simple` cru seria
+# outra condicao experimental.
+adapter: huggingface_causal_lm
+model_name: Qwen/Qwen2.5-7B-Instruct
+tokenizer_name: Qwen/Qwen2.5-7B-Instruct
+use_fast_tokenizer: true
+prompt_style: chat_template
+dtype: float16
+quantization: 4bit
+bnb_4bit_quant_type: nf4
+bnb_compute_dtype: float16
+device_map: auto
+trust_remote_code: false
+low_cpu_mem_usage: true
