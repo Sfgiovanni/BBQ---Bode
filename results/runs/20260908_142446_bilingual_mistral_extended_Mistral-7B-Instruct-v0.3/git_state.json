@@ -1,0 +1,6 @@
+{
+  "commit": "7a0e30534ff4ec7f7161a117f28a02b02c52c199",
+  "branch": "experiment/sabia-gpt4o-extended",
+  "status_short": "?? configs/experiments/bilingual_mistral_extended.yaml\n?? configs/models/mistral_7b.yaml",
+  "origin": "https://github.com/Sfgiovanni/BBQ---Bode.git"
+}

@@ -1,6 +1,6 @@
 # BR-BBQ estendido — resultados consolidados
 
-Pacote autocontido com os **cinco modelos** avaliados no catálogo estendido
+Pacote autocontido com os **seis modelos** avaliados no catálogo estendido
 (`questions/categories_bilingual_extended.yaml`, 51 pares), para servir de base à
 escrita do paper.
 
@@ -75,23 +75,26 @@ As três rotações são o que permite separar preferência real de resposta pos
 | modelo | identificador | prompt | scoring | pesos |
 |---|---|---|---|---|
 | `bode-7b` | `recogna-nlp/bode-7b-alpaca-pt-br-no-peft` | **alpaca** | logprob local (fp16) | locais, commit `ff1ecd8e` |
+| `mistral-7b` | `mistralai/Mistral-7B-Instruct-v0.3` | chat_template | logprob local (**4-bit NF4**) | locais |
 | `qwen2.5-7b` | `Qwen/Qwen2.5-7B-Instruct` | chat_template | logprob local (**4-bit NF4**) | locais |
 | `sabiazinho-4` | `sabiazinho-4` (Maritaca) | simple | logprob via API | remotos, sem revisão fixável |
 | `sabia-4` | `sabia-4` (Maritaca) | simple | logprob via API | remotos, sem revisão fixável |
 | `gpt-4o` | `gpt-4o` (OpenAI) | simple | logprob via Batch API | remotos, sem revisão fixável |
 
 Tokens médios de entrada: 196,9 (Bode, tokenizer Llama + preâmbulo Alpaca),
-145,8 (Qwen com seu chat template), 117,7 (Sabiás), 114,0 (gpt-4o).
+151,7 (Mistral) e 145,8 (Qwen), ambos com seu chat template, 117,7 (Sabiás), 114,0 (gpt-4o).
 
-O `qwen2.5-7b` é o **controle de tamanho**: mesmo porte do Bode (7 B), sem
-especialização em português, com instruction tuning moderno. É o que separa
-"o problema é ser 7 B" de "o problema é a receita de fine-tune".
+Três modelos locais e gratuitos (Bode, Mistral, Qwen — todos 7 B) contra três
+servidos por API e pagos (Sabiás, gpt-4o). Mistral e Qwen são os **controles de
+tamanho**: mesmo porte do Bode, sem especialização em português, de famílias
+diferentes — para que "7 B não-brasileiro competente" não dependa de um único
+fornecedor.
 
 ---
 
 ## Integridade
 
-`provenance/dataset_integrity.json` registra que os cinco runs avaliaram itens
+`provenance/dataset_integrity.json` registra que os seis runs avaliaram itens
 **idênticos** — mesmos `example_id`, condições, rotações, gabaritos e **mesmo texto
 de contexto, pergunta e alternativas**, conferido por SHA-256. O build aborta se
 isso deixar de valer.
@@ -153,34 +156,50 @@ recorte vai encontrar isso.
 
 ## Resultados principais
 
-| métrica | bode-7b | qwen2.5-7b | sabiazinho-4 | sabia-4 | gpt-4o |
-|---|---:|---:|---:|---:|---:|
-| acurácia geral | 0,401 | 0,973 | 0,977 | 0,996 | **0,997** |
-| acurácia · ambíguo | 0,028 | 0,955 | 0,980 | 0,998 | 0,998 |
-| acurácia · desambiguado | 0,775 | 0,991 | 0,973 | 0,993 | **0,995** |
-| taxa de "não sei" | 4,9% | 48,2% | 50,4% | 50,3% | 50,1% |
-| `s_DIS` | +0,056 | +0,005 | −0,004 | +0,001 | +0,003 |
-| `s_AMB` | +0,026 | **+0,030** | +0,008 | −0,000 | −0,001 |
-| `position_consistency` | 0,368 | 0,941 | 0,960 | 0,992 | **0,995** |
-| taxa A / B / C | 0,21/0,46/0,33 | 0,35/0,34/0,32 | 0,34/0,33/0,34 | 0,33/0,33/0,33 | 0,33/0,33/0,33 |
-| `semantic_agreement` PT↔EN | 0,725 | 0,967 | 0,963 | 0,994 | **0,995** |
+| métrica | bode-7b | mistral-7b | qwen2.5-7b | sabiazinho-4 | sabia-4 | gpt-4o |
+|---|---:|---:|---:|---:|---:|---:|
+| acurácia geral | 0,401 | 0,866 | 0,973 | 0,977 | 0,996 | **0,997** |
+| acurácia · ambíguo | 0,028 | 0,747 | 0,955 | 0,980 | 0,998 | 0,998 |
+| acurácia · desambiguado | 0,775 | 0,984 | 0,991 | 0,973 | 0,993 | **0,995** |
+| taxa de "não sei" | 4,9% | 37,8% | 48,2% | 50,4% | 50,3% | 50,1% |
+| `s_DIS` | +0,056 | +0,005 | +0,005 | −0,004 | +0,001 | +0,003 |
+| `s_AMB` | +0,026 | +0,001 | **+0,030** | +0,008 | −0,000 | −0,001 |
+| `position_consistency` | 0,368 | 0,749 | 0,941 | 0,960 | 0,992 | **0,995** |
+| taxa A / B / C | 0,21/0,46/0,33 | 0,37/0,31/0,32 | 0,35/0,34/0,32 | 0,34/0,33/0,34 | 0,33/0,33/0,33 | 0,33/0,33/0,33 |
+| `semantic_agreement` PT↔EN | 0,725 | 0,842 | 0,967 | 0,963 | 0,994 | **0,995** |
 
-**7 B não é a limitação.** O Qwen2.5-7B tem o mesmo número de parâmetros do Bode
-e alcança 0,973 de acurácia com 0,941 de consistência posicional, contra 0,401 e
-0,368. O colapso do Bode é da receita de fine-tune e/ou do formato Alpaca, não da
-escala.
+**7 B não é a limitação.** Os três modelos de 7 B vão de 0,401 a 0,973 de
+acurácia e de 0,368 a 0,941 de consistência posicional. A contagem de parâmetros
+não explica nada; a receita de fine-tune explica tudo.
 
-**Mas capacidade não elimina viés.** O Qwen tem o **maior `s_AMB` de todos**
-(+0,030), com intervalos que excluem zero nos dois idiomas — mais que os dois
-Sabiás. Ele abstém menos em contexto ambíguo (acurácia 0,955 contra 0,998 do
-sabia-4) e, quando chuta, chuta na direção do estereótipo. O eixo que separa os
-modelos aqui é abstenção calibrada, não nacionalidade.
+**Instabilidade posicional e viés social são eixos independentes.** É o achado
+metodológico central, e só aparece com os três modelos locais lado a lado:
+
+| modelo | estável? | enviesado? | assinatura |
+|---|---|---|---|
+| `bode-7b` | não (0,368) | **sim** — 4 ICs excluem zero | posicional **e** estereotípico |
+| `mistral-7b` | não (0,749) | **não** — nenhum IC exclui zero | posicional, **não** estereotípico |
+| `qwen2.5-7b` | sim (0,941) | **sim** — `s_AMB` nos dois idiomas | estereotípico, **não** posicional |
+
+Um modelo pode ser instável sem ser enviesado (Mistral puxa para a letra A —
+inclusive escolhendo "não sei" 45,4% das vezes quando ela está em A contra
+33,8% em B — mas essa preferência não é estereotípica), enviesado sem ser instável (Qwen), ou os dois (Bode).
+Segue-se que um `s_DIS` baixo **não** é evidência de neutralidade até você
+verificar de qual dos dois ele vem — que é exatamente o que
+`positional_stability.csv` permite fazer.
+
+**Capacidade não elimina viés.** O Qwen tem o maior `s_AMB` dos seis (+0,030),
+com intervalos que excluem zero nos dois idiomas — mais que os dois Sabiás. Ele
+abstém menos em contexto ambíguo (0,955 contra 0,998 do sabia-4) e, quando
+chuta, chuta na direção do estereótipo. O eixo que separa os modelos aqui é
+**abstenção calibrada**, não nacionalidade.
 
 ### `s_DIS` restrito a questões estáveis
 
 | modelo | % estáveis | `s_DIS` todas | `s_DIS` estáveis |
 |---|---:|---:|---:|
 | bode-7b | 36,8% | +0,056 | **+0,144** |
+| mistral-7b | 74,9% | +0,005 | +0,004 |
 | qwen2.5-7b | 94,1% | +0,005 | +0,000 |
 | sabiazinho-4 | 96,0% | −0,004 | −0,011 |
 | sabia-4 | 99,2% | +0,001 | −0,006 |
@@ -195,6 +214,7 @@ contexto dá a resposta — erra quando não dá.
 | modelo | métricas |
 |---|---|
 | `bode-7b` | **todas as quatro** — `s_DIS` pt [+0,007; +0,071] e en [+0,035; +0,109]; `s_AMB` pt [+0,017; +0,048] e en [+0,001; +0,038] |
+| `mistral-7b` | nenhuma — apesar de 25% de instabilidade posicional |
 | `qwen2.5-7b` | `s_AMB` **nos dois idiomas** — pt [+0,033; +0,046] e en [+0,017; +0,026] |
 | `sabiazinho-4` | `s_AMB` en [+0,008; +0,018] |
 | `sabia-4` | nenhuma |
@@ -204,11 +224,12 @@ contexto dá a resposta — erra quando não dá.
 
 | modelo | em A | em B | em C |
 |---|---:|---:|---:|
-| bode-7b | 0,003 | **0,129** | 0,015 |
-| qwen2.5-7b | 0,486 | 0,481 | 0,478 |
+| bode-7b | **0,003** | **0,129** | **0,015** |
+| mistral-7b | 0,454 | 0,338 | 0,341 |
+| qwen2.5-7b | 0,505 | 0,486 | 0,453 |
 | sabiazinho-4 | 0,508 | 0,495 | 0,507 |
 | sabia-4 | 0,504 | 0,501 | 0,503 |
-| gpt-4o | 0,504 | 0,500 | 0,500 |
+| gpt-4o | 0,503 | 0,501 | 0,501 |
 
 ---
 
@@ -234,7 +255,7 @@ contexto dá a resposta — erra quando não dá.
    reconstrução. **Um rerun do BODE com essa versão é reconstrução, não reprodução**
    do run de julho — pedir o arquivo original ao autor antes de qualquer rerun.
 
-4. **O Qwen rodou quantizado em 4-bit (NF4)**, porque 7,62 B em fp16 são 15,2 GB
+4. **Qwen e Mistral rodaram quantizados em 4-bit (NF4)**, porque 7 B em fp16 passam de 14 GB
    contra 11,3 GB de VRAM disponíveis. A quantização perturba os logits sobre os
    quais o benchmark tira `argmax`: os números do Qwen são comparáveis entre si e
    aos demais dentro da margem esperada, mas uma comparação estrita com o run
@@ -250,7 +271,7 @@ contexto dá a resposta — erra quando não dá.
    em **100%** das linhas do gpt-4o e em 73.439 de 73.440 dos Sabiás. Não afetou
    nenhum resultado, mas a coluna existe para que isso seja verificável.
 
-7. **Teto do benchmark.** Quatro dos cinco modelos passam de 0,97 de acurácia. Um
+7. **Teto do benchmark.** Quatro dos seis modelos passam de 0,97 de acurácia. Um
    instrumento onde os concorrentes empatam no topo tem pouca resolução — a
    conclusão "especialização em português não produz vantagem mensurável" vale
    para **este** benchmark, com este nível de dificuldade.

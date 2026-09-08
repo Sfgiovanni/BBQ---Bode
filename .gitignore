@@ -142,6 +142,25 @@ results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/*
 !results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/metrics/**
 !results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/figures/
 !results/runs/20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct/figures/**
+
+# Terceiro controle local: Mistral-7B-Instruct-v0.3, 4-bit.
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/
+results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/*
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/config_resolved.yaml
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/git_state.json
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/dataset_manifest.json
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/manifest.json
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/runtime.json
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/token_usage.json
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/base_templates.csv
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/EXECUTIVE_SUMMARY.md
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/REPORT.md
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/REPORT_BRAZIL_SPECIFIC.md
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/raw_predictions.parquet
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/metrics/
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/metrics/**
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/figures/
+!results/runs/20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3/figures/**
 # Pacote consolidado do catalogo estendido, base para o paper.
 !results/extended_catalog/
 !results/extended_catalog/**

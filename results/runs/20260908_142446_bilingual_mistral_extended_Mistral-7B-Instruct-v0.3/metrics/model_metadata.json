@@ -1,0 +1,17 @@
+{
+  "adapter": "huggingface_causal_lm",
+  "model_name": "mistralai/Mistral-7B-Instruct-v0.3",
+  "model_revision": null,
+  "tokenizer_name": "mistralai/Mistral-7B-Instruct-v0.3",
+  "tokenizer_revision": null,
+  "dtype": "float16",
+  "device_map": "auto",
+  "devices": [
+    "0"
+  ],
+  "torch_version": "2.11.0+cu130",
+  "transformers_version": "4.57.6",
+  "python_version": "3.14.3",
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 2080 Ti"
+}
