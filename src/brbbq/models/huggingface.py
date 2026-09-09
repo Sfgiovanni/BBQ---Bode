@@ -32,11 +32,13 @@ class HuggingFaceCausalLMAdapter(BaseModelAdapter):
             return self.tokenizer
         from transformers import AutoTokenizer
 
+        # BODE needs the slow tokenizer; newer BPE tokenizers (Qwen, Llama-3)
+        # only ship a fast one, so this is configurable rather than hardcoded.
         self.tokenizer = AutoTokenizer.from_pretrained(
             self.config.get("tokenizer_name") or self.config["model_name"],
             revision=self.config.get("tokenizer_revision"),
             token=os.environ.get("HF_TOKEN"),
-            use_fast=False,
+            use_fast=bool(self.config.get("use_fast_tokenizer", False)),
             trust_remote_code=bool(self.config.get("trust_remote_code", False)),
         )
         if self.tokenizer.pad_token is None:
@@ -53,11 +55,35 @@ class HuggingFaceCausalLMAdapter(BaseModelAdapter):
         if dtype_name not in DTYPES:
             raise ValueError("Unsupported dtype: {}".format(dtype_name))
         self.load_tokenizer()
+
+        # Optional weight quantization, so a 7B fits on an 11 GB card. Off by
+        # default: the reference BODE run is fp16 and quantization perturbs the
+        # logits this benchmark takes an argmax over, so a quantized run is
+        # comparable to other quantized runs, not to that one.
+        extra = {}
+        quant = self.config.get("quantization")
+        if quant in ("4bit", "8bit"):
+            from transformers import BitsAndBytesConfig
+
+            if quant == "4bit":
+                extra["quantization_config"] = BitsAndBytesConfig(
+                    load_in_4bit=True,
+                    bnb_4bit_quant_type=self.config.get("bnb_4bit_quant_type", "nf4"),
+                    bnb_4bit_compute_dtype=DTYPES[self.config.get("bnb_compute_dtype", "float16")],
+                    bnb_4bit_use_double_quant=bool(
+                        self.config.get("bnb_4bit_use_double_quant", True)),
+                )
+            else:
+                extra["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
+        elif quant not in (None, "none"):
+            raise ValueError("Unsupported quantization: {}".format(quant))
+
         self.model = AutoModelForCausalLM.from_pretrained(
             self.config["model_name"],
             revision=self.config.get("revision"),
             token=os.environ.get("HF_TOKEN"),
             torch_dtype=DTYPES[dtype_name],
+            **extra,
             device_map=self.config.get("device_map", "auto"),
             low_cpu_mem_usage=bool(self.config.get("low_cpu_mem_usage", True)),
             trust_remote_code=bool(self.config.get("trust_remote_code", False)),

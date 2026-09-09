@@ -1,0 +1,50 @@
+experiment:
+  name: bilingual_mistral_extended
+  seed: 42
+  languages:
+  - pt
+  - en
+  categories: all
+  templates_per_category: 30
+  pairs_per_template: null
+  conditions_per_pair: 4
+  permutations: 3
+  expected_logical_per_language: 6120
+  expected_logical_total: 12240
+  expected_expanded_total: 36720
+model:
+  adapter: huggingface_causal_lm
+  model_name: mistralai/Mistral-7B-Instruct-v0.3
+  tokenizer_name: mistralai/Mistral-7B-Instruct-v0.3
+  use_fast_tokenizer: true
+  prompt_style: chat_template
+  dtype: float16
+  quantization: 4bit
+  bnb_4bit_quant_type: nf4
+  bnb_compute_dtype: float16
+  device_map: auto
+  trust_remote_code: false
+  low_cpu_mem_usage: true
+  config_path: configs/models/mistral_7b.yaml
+inference:
+  batch_size: 16
+  batch_candidates:
+  - 32
+  - 16
+  - 8
+  - 4
+  checkpoint_every: 100
+  audit_per_language: 50
+  max_new_tokens_audit: 8
+  scoring_method: first_token_logprob
+  do_sample: false
+  resume: true
+metrics:
+  bootstrap_samples: 1000
+  confidence_level: 0.95
+  cluster_key: semantic_pair_id
+paths:
+  categories: questions/categories_bilingual_extended.yaml
+  scenarios: questions/scenarios_bilingual.jsonl
+  results_root: results/runs
+config_path: /home/franco/BBQ/bode_repo/configs/experiments/bilingual_mistral_extended.yaml

@@ -2,6 +2,12 @@ model,selected_content_pt,group1,group2,unknown
 bode-7b,group1,8694,1762,346
 bode-7b,group2,2236,4240,355
 bode-7b,unknown,204,152,371
+mistral-7b,group1,4761,310,809
+mistral-7b,group2,181,4962,460
+mistral-7b,unknown,498,651,5728
+qwen2.5-7b,group1,4600,8,205
+qwen2.5-7b,group2,13,4608,185
+qwen2.5-7b,unknown,104,86,8551
 sabiazinho-4,group1,4450,0,77
 sabiazinho-4,group2,0,4324,46
 sabiazinho-4,unknown,239,318,8906

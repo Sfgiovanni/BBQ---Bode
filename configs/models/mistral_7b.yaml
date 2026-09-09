@@ -1,0 +1,19 @@
+# Terceiro modelo local: 7B nao-brasileiro de outra familia (Mistral), para que
+# "nao-brasileiro do mesmo porte" nao dependa de um unico fornecedor.
+# Quantizado em 4-bit pelo mesmo motivo do Qwen -- ver a ressalva de
+# comparabilidade com o run fp16 do BODE no README do pacote.
+#
+# Tokenizer: 'A' e ' A' colapsam no mesmo id (1098); '\nA' e multi-token e o
+# audit rejeita, deixando exatamente um id por letra.
+adapter: huggingface_causal_lm
+model_name: mistralai/Mistral-7B-Instruct-v0.3
+tokenizer_name: mistralai/Mistral-7B-Instruct-v0.3
+use_fast_tokenizer: true
+prompt_style: chat_template
+dtype: float16
+quantization: 4bit
+bnb_4bit_quant_type: nf4
+bnb_compute_dtype: float16
+device_map: auto
+trust_remote_code: false
+low_cpu_mem_usage: true

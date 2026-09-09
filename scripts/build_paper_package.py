@@ -28,10 +28,14 @@ import pandas as pd
 REPO = Path(__file__).resolve().parents[1]
 
 # model label -> run directory. Order is the reading order used in the paper:
-# the local baseline first, then the two hosted Brazilian models, then the
-# hosted non-Brazilian control.
+# the three local 7B models first (the Brazilian fine-tune plus two same-size
+# non-Brazilian controls from different families, which separates parameter count
+# from tuning recipe and from any single vendor), then the two hosted Brazilian
+# models, then the hosted non-Brazilian control. Free/local before paid/API.
 RUNS = {
     "bode-7b": "20260726_112145_bilingual_bode_extended_bode-7b-alpaca-pt-br-no-peft",
+    "mistral-7b": "20260908_142446_bilingual_mistral_extended_Mistral-7B-Instruct-v0.3",
+    "qwen2.5-7b": "20260908_094710_bilingual_qwen_extended_Qwen2.5-7B-Instruct",
     "sabiazinho-4": "20260904_120011_bilingual_sabia_extended_sabiazinho-4",
     "sabia-4": "20260904_122525_bilingual_sabia_extended_sabia-4",
     "gpt-4o": "20260904_203401_bilingual_openai_extended_gpt-4o",
@@ -238,7 +242,7 @@ def main():
             if origem.exists():
                 shutil.copy2(origem, out / "provenance" / "{}__{}".format(modelo, Path(arq).name))
     proveniencia().to_csv(out / "provenance" / "models.csv", index=False)
-    print("   4 parquets + proveniencia")
+    print("   {} run(s) + proveniencia".format(len(RUNS)))
 
     print("\npacote em {}".format(out))
 
